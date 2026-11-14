@@ -27,7 +27,26 @@ senda/
 
 ## Puesta en marcha
 
-Pendiente: se documentará al añadir `docker-compose.yml` (PostGIS + backend).
+Requisitos: Docker Desktop y Git. Para los hooks, Python con `pre-commit`.
+
+```bash
+cp .env.example .env
+docker compose up -d --build
+docker compose exec backend python manage.py migrate
+docker compose exec backend python manage.py createsuperuser
+```
+
+- API y documentación OpenAPI: http://localhost:8000/api/docs/
+- Admin de Django: http://localhost:8000/admin/
+- PostGIS: `localhost:5432` (usuario, contraseña y base `senda`)
+
+Puertas de calidad:
+
+```bash
+docker compose exec backend pytest
+docker compose exec backend ruff check .
+pip install pre-commit && pre-commit install   # una vez
+```
 
 ## Licencias y atribución
 
