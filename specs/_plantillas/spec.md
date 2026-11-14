@@ -19,19 +19,19 @@
 
 - Como <rol>, quiero <acción> para <beneficio>.
 
-## Criterios de aceptación
+## Acceptance criteria
 
-Cada criterio se convierte en al menos un test (HAR-06). Numéralos para poder citarlos desde `tasks.md` y desde los tests (`# CA-01`).
+Cada criterio se convierte en al menos un test (HAR-06). Numéralos para poder citarlos desde `tasks.md` y desde los tests (`# AC-01`).
 
-### CA-01 · <título corto>
-- **Dado** <contexto inicial>
-- **Cuando** <acción>
-- **Entonces** <resultado observable>
+### AC-01 · <título corto>
+- **Given** <contexto inicial>
+- **When** <acción>
+- **Then** <resultado observable>
 
-### CA-02 · <título corto>
-- **Dado** …
-- **Cuando** …
-- **Entonces** …
+### AC-02 · <título corto>
+- **Given** …
+- **When** …
+- **Then** …
 
 ## Textos de interfaz (i18n)
 

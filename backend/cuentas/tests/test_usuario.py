@@ -9,10 +9,10 @@ def test_el_modelo_de_usuario_es_cuentas_usuario():
 
 @pytest.mark.django_db
 def test_crear_usuario_con_email_sin_username():
-    # Dado un email y una contraseña
-    # Cuando se crea un usuario
+    # Given: un email y una contraseña
+    # When: se crea un usuario
     usuario = get_user_model().objects.create_user(email="Ana@Example.com", password="s3nda-pass")
-    # Entonces se identifica por email (dominio normalizado), sin username, idioma es por defecto
+    # Then: se identifica por email (dominio normalizado), sin username, idioma es por defecto
     assert usuario.email == "Ana@example.com"
     assert usuario.username is None
     assert usuario.idioma == "es"

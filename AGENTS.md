@@ -21,11 +21,11 @@ Si algo no está decidido, **pregunta**; no decidas por el autor.
 
 Cada funcionalidad sigue este ciclo. No saltes pasos ni avances sin la revisión humana indicada.
 
-1. **Spec** (`specs/NNN-nombre/spec.md`, desde `specs/_plantillas/spec.md`): qué y por qué, con criterios de aceptación Dado/Cuando/Entonces (HAR-06). → **revisión humana**
+1. **Spec** (`specs/NNN-nombre/spec.md`, desde `specs/_plantillas/spec.md`): qué y por qué, con acceptance criteria Given/When/Then (HAR-06). → **revisión humana**
 2. **Plan** (`plan.md`): cómo, qué ficheros, qué decisiones técnicas. → **revisión humana**
 3. **Tareas** (`tasks.md`): pasos pequeños y verificables, cada uno con su test.
 4. **Implementación**: tarea a tarea; marca cada una al cerrarla.
-5. **Verificación**: cada criterio Dado/Cuando/Entonces tiene al menos un test que lo cubre y pasa.
+5. **Verificación**: cada acceptance criterion Given/When/Then tiene al menos un test que lo cubre y pasa.
 
 Al terminar una sesión de trabajo relevante, añade una entrada en `docs/ia/registro-uso-ia.md` (HAR-10): qué se pidió, qué se corrigió y dónde falló el agente.
 
@@ -61,6 +61,7 @@ No desactives una regla ni marques un test como `skip` para que pase; si crees q
 
 ## Convenciones
 
+- Términos de metodología en inglés: Given/When/Then, acceptance criteria (`AC-01`…), spec, plan, tasks. El registro de decisiones dice "Dado/Cuando/Entonces" (HAR-06): es lo mismo.
 - Código, nombres de modelos y comentarios en castellano sin tildes en identificadores (`Lugar`, `Valoracion`, `nombre_visible`), como en el modelo de datos.
 - Commits en castellano, estilo Conventional Commits (`feat:`, `fix:`, `chore:`, `docs:`, `test:`), referenciando la spec si la hay (`feat(001): ...`).
 - Ningún secreto en el repo: variables en `.env` (ignorado), con ejemplo en `.env.example`.

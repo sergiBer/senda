@@ -38,4 +38,4 @@ Si una decisión es duradera, regístrala además como ADR en `docs/decisions/`.
 
 | Criterio | Tipo de test | Dónde |
 | --- | --- | --- |
-| CA-01 | pytest / Vitest / Playwright | `…` |
+| AC-01 | pytest / Vitest / Playwright | `…` |
