@@ -1,105 +1,114 @@
-# Metodología de trabajo con IA
+# Metodología de desarrollo con IA
 
-Senda se desarrolla con agentes de IA siguiendo **Spec-Driven Development (SDD)**: cada funcionalidad se especifica antes de escribir código, con revisiones humanas en los puntos donde se decide, y puertas de calidad automáticas que verifican lo que el agente produce. El flujo vive en ficheros markdown del repo, así que funciona igual con cualquier agente (HAR-03).
+## Introducción
 
-Este documento describe la metodología tal como está montada. Las reglas operativas para los agentes están en `AGENTS.md`; aquí se explica el porqué.
+Senda se desarrolla con agentes de inteligencia artificial como herramienta principal de programación. En este proyecto el agente no se usa como autocompletado avanzado. Se le encargan tareas completas: redactar una especificación, proponer un plan técnico, escribir código y sus tests. Esto plantea una pregunta de fondo: **cómo mantener el control sobre un código que no se escribe a mano**, de modo que el resultado responda a lo que el autor quiere y no a lo que el agente supone.
 
-## 1. Agentes y reparto de papeles
+La respuesta adoptada combina tres ideas:
 
-| Papel | Quién | Qué hace |
-| --- | --- | --- |
-| Autor / orquestador | Sergi | Decide el alcance, revisa spec y plan, aprueba |
-| Implementador | Claude Code, opencode o Codex (HAR-01) | Escribe spec, plan, tareas y código siguiendo el flujo |
-| Verificador | Puertas de calidad (pytest, Ruff, CI) y revisión humana | Comprueban que el código cumple los acceptance criteria |
+1. **Especificar antes de programar.** Cada funcionalidad se describe por escrito, con criterios de aceptación comprobables, antes de generar una sola línea de código.
+2. **Decidir el autor, ejecutar el agente.** Las decisiones de producto y de arquitectura quedan en manos del autor, que revisa y aprueba en puntos concretos del proceso.
+3. **Verificar automáticamente.** Tests, linters y comprobaciones de contrato dicen si el código generado es correcto, sin depender de que alguien lo lea línea a línea.
 
-Hoy no hay agentes con roles separados (orquestador, verificador…). Se valorará añadirlos tras la spec 001; el primer candidato es un verificador independiente que compruebe cada acceptance criterion contra los tests sin haber escrito el código.
+A este conjunto (contexto, reglas, flujo y comprobaciones automáticas en el que trabajan los agentes) lo llamamos **harness**. Se describe a continuación.
 
-## 2. Capas de contexto
+## Spec-Driven Development
 
-El agente no recibe todo el proyecto: recibe un contexto mínimo fijo y lee el resto cuando lo necesita.
+El proyecto sigue **Spec-Driven Development (SDD)**, un enfoque que se ha extendido en el desarrollo con agentes durante 2025 y 2026. Su premisa es sencilla: cuando quien programa es un modelo de lenguaje, lo que más influye en el resultado es lo bien definido que esté el problema. Una petición vaga produce código plausible pero equivocado; una especificación precisa, con ejemplos concretos de comportamiento esperado, reduce mucho ese margen.
 
-| Capa | Fichero | Cuándo se carga |
-| --- | --- | --- |
-| Contexto fijo | `AGENTS.md` (raíz) | Al empezar cada sesión, automáticamente |
-| Contexto por parte | `frontend/AGENTS.md`, `backend/AGENTS.md` | Al trabajar en esa carpeta |
-| Reglas no negociables | `docs/constitucion.md` | Bajo demanda; manda sobre todo lo demás |
-| Decisiones del MVP | `docs/registro-decisiones.md` | Bajo demanda, citando IDs (`DAT-03`) |
-| Funcionalidad activa | `specs/NNN-nombre/` | Durante esa funcionalidad |
-| Decisiones técnicas | `docs/decisions/` (ADR) | Bajo demanda |
-
-`CLAUDE.md` solo contiene `@AGENTS.md`: Claude Code lee `CLAUDE.md` y Codex y opencode leen `AGENTS.md`, así hay una única fuente (HAR-02).
-
-**Prioridad cuando se contradicen:** constitución → registro de decisiones → spec activa → ADR. Cada nivel es más concreto y cambia más a menudo que el anterior. Si algo no está decidido en ninguno, el agente pregunta en vez de decidir.
-
-## 3. Ciclo por funcionalidad
+Cada funcionalidad recorre el mismo ciclo:
 
 ```mermaid
 flowchart LR
-    S[Spec<br/>qué y por qué<br/>+ AC Given/When/Then] --> R1{Revisión<br/>humana}
+    S[Especificación] --> R1{Revisión<br/>del autor}
     R1 -- cambios --> S
-    R1 -- aprobada --> P[Plan<br/>cómo y qué ficheros]
-    P --> R2{Revisión<br/>humana}
+    R1 -- aprobada --> P[Plan técnico]
+    P --> R2{Revisión<br/>del autor}
     R2 -- cambios --> P
-    R2 -- aprobado --> T[Tasks<br/>pasos pequeños<br/>con su test]
-    T --> I[Implementación<br/>tarea a tarea]
-    I --> V[Verificación<br/>cada AC tiene test en verde<br/>+ puertas de calidad]
+    R2 -- aprobado --> T[Tareas]
+    T --> I[Implementación]
+    I --> V[Verificación]
     V -- falla --> I
-    V -- pasa --> H[Commit + registro<br/>de uso de IA]
+    V -- pasa --> F[Entrega]
 ```
 
-1. **Spec** (`spec.md`): problema, alcance, historias y **acceptance criteria** en formato Given/When/Then, numerados `AC-01`, `AC-02`… (HAR-06).
-2. **Revisión humana**: el autor aprueba o pide cambios. El agente no avanza sin ella.
-3. **Plan** (`plan.md`): cambios por capa, contrato de API, decisiones técnicas y qué test cubre cada AC.
-4. **Revisión humana** del plan.
-5. **Tasks** (`tasks.md`): tareas de una sesión como máximo, cada una con los AC que cubre.
-6. **Implementación** tarea a tarea, marcando cada una al cerrarla.
-7. **Verificación**: todos los AC con al menos un test en verde y las puertas de calidad limpias.
+**Especificación (spec).** Describe qué se quiere y por qué, sin entrar en cómo: el problema que resuelve, el alcance, lo que queda fuera y los criterios de aceptación. El agente redacta un borrador a partir de las decisiones del proyecto y el autor lo corrige.
 
-Las plantillas están en `specs/_plantillas/`. La primera funcionalidad, `001-esqueleto`, es un esqueleto de extremo a extremo que sirve para validar el propio flujo (HAR-09).
+**Primera revisión.** El autor aprueba la especificación o pide cambios. Es el punto de control más importante: aquí se corrige el malentendido antes de que se convierta en código.
 
-**Por qué así:** las dos revisiones humanas evitan que el agente decida por el autor (HAR-05); los AC en Given/When/Then se traducen directamente en tests, y los tests son lo que permite confiar en código generado.
+**Plan técnico.** Explica cómo se va a construir: qué partes del sistema cambian, qué contrato de API se expone, qué decisiones técnicas se toman y qué test comprobará cada criterio de aceptación.
 
-## 4. Puertas de calidad
+**Segunda revisión.** El autor valida el enfoque técnico. Evita que el agente elija por su cuenta una arquitectura o una librería que contradiga decisiones previas.
 
-Feedback automático para que el agente corrija solo antes de llegar a la revisión (HAR-07).
+**Tareas.** El plan se divide en pasos pequeños, cada uno abordable en una sola sesión de trabajo y asociado a los criterios que cubre. Las tareas pequeñas reducen el riesgo de que el agente pierda el hilo en cambios grandes, y dejan constancia de por dónde va el trabajo.
 
-| Puerta | Backend | Frontend | Dónde |
-| --- | --- | --- | --- |
-| Lint y formato | Ruff | ESLint | pre-commit y CI |
-| Tipos | — | `tsc --noEmit` | pre-commit y CI |
-| Tests unitarios | pytest | Vitest | pre-commit y CI |
-| Contrato | `spectacular --validate` | cliente generado | CI |
-| Migraciones | `makemigrations --check` | — | CI |
-| Flujos | Playwright | | CI |
+**Implementación y verificación.** El agente implementa tarea a tarea. Una funcionalidad solo se da por terminada cuando cada criterio de aceptación tiene al menos un test que lo comprueba y pasa, y todas las comprobaciones automáticas están en verde.
 
-Estado: las del backend están activas; las del frontend se añaden con la spec 001.
+Las dos revisiones humanas son deliberadas. El coste de corregir un error crece a medida que avanza el ciclo: cambiar una frase de la especificación cuesta segundos; deshacer código ya generado y probado cuesta mucho más.
 
-## 5. Memoria persistente
+## Criterios de aceptación en formato Given/When/Then
 
-Lo que un agente necesita saber en una sesión nueva está en el repo, compartido por los tres agentes:
+Los criterios de aceptación se escriben con el formato **Given / When / Then**, procedente de Behaviour-Driven Development (BDD). Cada criterio describe una situación inicial, una acción y un resultado observable. Por ejemplo:
 
-- **Qué es el proyecto y cómo se trabaja:** `AGENTS.md`.
-- **Qué se ha decidido:** registro de decisiones y ADR.
-- **Dónde se quedó el trabajo:** `tasks.md` de la spec activa, con las tareas marcadas.
-- **Cómo se ha usado la IA:** `docs/ia/registro-uso-ia.md`.
+> **Given** un lugar con tres familias que han confirmado que tiene sombra
+> **When** un usuario filtra por "sombra"
+> **Then** el lugar aparece en los resultados como dato consolidado
 
-No es una memoria que aprenda sola: el agente solo escribe ahí si el flujo se lo indica. La memoria propia de cada herramienta (por ejemplo, la de Claude Code) es local y no la ven los otros agentes, así que nada importante debe vivir solo ahí.
+Este formato tiene dos ventajas para el trabajo con agentes. Es lo bastante concreto como para que no haya dudas sobre lo que se espera, y se traduce casi directamente en un test automático. Así, la especificación que aprueba el autor y la prueba que verifica el código dicen lo mismo, y la trazabilidad de requisito a test queda explícita: cada criterio lleva un identificador (AC-01, AC-02…) que se cita desde las tareas y desde los propios tests.
 
-## 6. Convenciones de idioma
+## El contexto que recibe el agente
 
-- Prosa de documentación y comentarios: castellano.
-- Términos de metodología: inglés (spec, plan, tasks, acceptance criteria, Given/When/Then).
-- Identificadores de código: castellano sin tildes (`Lugar`, `Valoracion`, `nombre_visible`).
-- Commits: castellano, Conventional Commits (`feat(001): …`).
+Un agente de IA empieza cada sesión sin recordar las anteriores. Todo lo que necesita saber del proyecto tiene que estar escrito en algún sitio que pueda leer. El diseño de ese contexto sigue dos principios: **una única fuente de verdad** y **cargar solo lo necesario**.
 
-El castellano consume algo más de tokens que el inglés, pero el dominio, el registro y el TFM están en castellano; mezclar idiomas obligaría al agente a traducir y aumentaría errores. El ahorro real viene de mantener `AGENTS.md` corto y apuntar a los demás documentos en vez de copiarlos.
+El contexto se organiza en capas:
 
-## 7. Registro de uso de la IA
+- **Un fichero de instrucciones general** que el agente carga automáticamente al empezar. Resume qué es el proyecto, cómo se trabaja, qué comandos usar y dónde está cada cosa. Se mantiene breve a propósito, porque se lee en cada sesión y cada palabra cuenta.
+- **Una constitución**: ocho reglas no negociables que cualquier agente debe respetar siempre. Por ejemplo, no mezclar en un mismo registro los datos importados de OpenStreetMap con los aportados por las familias, traducir todos los textos a los tres idiomas de la interfaz, o no dar por buena ninguna regla de negocio sin un test que la compruebe.
+- **El registro de decisiones del MVP**, que recoge las decisiones de producto y arquitectura tomadas antes de empezar, cada una con un identificador estable que especificaciones y código pueden citar.
+- **La especificación activa**, con su plan y sus tareas.
+- **Registros de decisiones técnicas (ADR)** para las decisiones que surjan durante el desarrollo.
 
-Tras cada sesión relevante se añade una fila a `docs/ia/registro-uso-ia.md`: qué se pidió, qué se corrigió y dónde falló el agente (HAR-10). Es la evidencia para la evaluación del TFM y la base para ajustar esta metodología.
+Cuando dos documentos se contradicen, prevalece el de rango superior en este orden: constitución, registro de decisiones, especificación, ADR. Cada nivel es más concreto y cambia con más frecuencia que el anterior. Y cuando algo no está decidido en ninguno, la instrucción para el agente es preguntar, no decidir.
 
-## 8. Evolución prevista
+## Independencia de la herramienta
 
-- Tras la spec 001: revisar qué partes del flujo sobran o faltan y actualizar este documento.
-- Valorar roles de agente separados, empezando por un verificador.
-- Valorar un fichero de lecciones aprendidas compartido entre agentes.
+El proyecto se desarrolla con tres agentes distintos: Claude Code, opencode y Codex. Para no atar la metodología a ninguno, todo el flujo vive en ficheros Markdown dentro del repositorio: las instrucciones, las plantillas de especificación, plan y tareas, y las reglas. No se usan comandos ni configuraciones propias de una herramienta concreta.
+
+Esto tiene una consecuencia práctica: hay un único fichero de instrucciones que leen los tres agentes, en lugar de mantener tres versiones que acabarían divergiendo. También permite comparar cómo se comporta cada agente ante el mismo encargo y con el mismo contexto.
+
+## Verificación automática
+
+La revisión humana se concentra en especificación y plan; la corrección del código la comprueban herramientas automáticas, llamadas **puertas de calidad**:
+
+- **Linters y formateadores** (Ruff en el backend, ESLint en el frontend), que detectan errores comunes y mantienen un estilo uniforme.
+- **Comprobación de tipos** con TypeScript en el frontend.
+- **Tests unitarios y de integración** (pytest y Vitest) y **tests de flujo** en navegador (Playwright).
+- **Validación del contrato de API**: el backend genera automáticamente su especificación OpenAPI, y el cliente del frontend se genera a partir de ella. Un cambio incompatible en la API rompe la compilación del frontend en lugar de fallar en producción.
+
+Estas comprobaciones se ejecutan en dos momentos: antes de cada commit en el equipo del desarrollador, y en integración continua en cada cambio subido al repositorio. Su papel con los agentes es doble: garantizan un mínimo de calidad y dan al agente una señal inmediata y objetiva para corregirse solo, antes de que el autor tenga que intervenir.
+
+## Memoria del proyecto
+
+Como los agentes no recuerdan sesiones anteriores, la continuidad del trabajo depende de lo que queda escrito en el repositorio. Funciona como una memoria compartida por todos los agentes:
+
+- Las instrucciones generales y la constitución explican cómo se trabaja.
+- El registro de decisiones y los ADR explican qué se ha decidido y por qué.
+- La lista de tareas de cada especificación, con las completadas marcadas, indica dónde se quedó el trabajo, de modo que una sesión nueva puede retomarlo sin explicaciones.
+
+Esta memoria no se actualiza sola: un agente solo escribe en ella cuando el flujo se lo indica. Algunas herramientas tienen además su propia memoria, pero es local y no la comparten los demás agentes, así que nada importante debe depender de ella.
+
+## Idioma
+
+La documentación y los nombres del dominio están en castellano, que es el idioma del proyecto, del producto y de este trabajo. Los términos propios de la metodología se mantienen en inglés (spec, plan, Given/When/Then, acceptance criteria), porque son los que se usan en la literatura y en las herramientas.
+
+Se valoró escribir toda la documentación para los agentes en inglés para reducir el consumo de tokens, ya que el castellano ocupa algo más. Se descartó: la diferencia es pequeña frente al efecto de la longitud de los documentos, y mezclar idiomas entre el dominio y la documentación obligaría al agente a traducir constantemente, con más riesgo de errores. El ahorro real se consigue manteniendo breve el contexto que se carga en cada sesión.
+
+## Registro del uso de la IA
+
+Durante el desarrollo se lleva un registro de cómo se ha usado la IA: qué se pidió en cada sesión, qué hubo que corregir y dónde falló el agente. Tiene dos funciones: aportar evidencia para la evaluación de este trabajo y servir de base para ajustar la metodología con datos reales en lugar de impresiones.
+
+## Validación y evolución
+
+La metodología no se da por buena de antemano. La primera especificación del proyecto es un **esqueleto de extremo a extremo**: un endpoint con lugares de prueba y un mapa que los muestra. Su objetivo no es aportar funcionalidad, sino comprobar que el flujo completo funciona: especificación, revisiones, contrato de API, puertas de calidad y trabajo de los tres agentes.
+
+Tras esa primera iteración se revisará qué partes del proceso sobran o faltan. Dos evoluciones previstas son la incorporación de agentes con papeles diferenciados, empezando por un verificador independiente que compruebe los criterios de aceptación sin haber escrito el código, y un registro compartido de lecciones aprendidas que los agentes consulten y amplíen.
