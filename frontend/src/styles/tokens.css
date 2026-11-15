@@ -1,0 +1,129 @@
+/*
+ * Tokens de diseño de Senda (DIS-03).
+ * Fuente: design/Senda - Sistema de diseño.dc.html (v0.2).
+ * Única fuente de colores, tipografía, espaciado, radios y sombras del frontend:
+ * ningún componente escribe estos valores a mano.
+ */
+
+:root {
+  /* ---------- Color · marca ---------- */
+  --color-pino: #2e5a4c; /* botones, filtros activos, enlaces */
+  --color-pino-oscuro: #234539; /* hover, texto «Sí» */
+  --color-pino-claro: #e2ece6; /* chip coincidente, selección suave */
+  --color-ambar: #c98a1b; /* solo estrellas; siempre con valor numérico (DIS-05) */
+
+  /* ---------- Color · neutros cálidos ---------- */
+  --color-tinta: #1f1d1a; /* texto principal, botón oscuro */
+  --color-tinta-2: #3a352f; /* texto secundario fuerte */
+  --color-tinta-3: #57514a; /* texto secundario; el texto nunca es más claro (DIS-05) */
+  --color-tinta-4: #756d63; /* placeholders, iconos inactivos; no para texto */
+  --color-borde-fuerte: #c4baaa; /* borde punteado «Sin datos» */
+  --color-borde-campo: #d3cabc; /* inputs, chips */
+  --color-borde: #e4ddd2; /* tarjetas, divisores */
+  --color-superficie-2: #efeae1; /* chips neutros, segmentados */
+  --color-fondo: #f7f4ee; /* fondo de página */
+  --color-superficie: #fffefb; /* tarjetas, paneles */
+  --color-blanco: #fff; /* campos, texto sobre color */
+
+  /* ---------- Color · estados de atributo (siempre con icono y texto, ACC-02) ---------- */
+  --color-estado-si: #234539;
+  --color-estado-parcial: #6b5a24;
+  --color-estado-no: #8e4529; /* también error */
+  --color-estado-sin-datos: #57514a;
+
+  /* ---------- Color · familias (pin / texto sobre tinte / tinte) ---------- */
+  --color-juego: #b45f3e;
+  --color-juego-tinta: #9a4e31;
+  --color-juego-tinte: #f6e6dd;
+  --color-naturaleza: #3e7656;
+  --color-naturaleza-tinta: #2f6246;
+  --color-naturaleza-tinte: #e1eee5;
+  --color-cultura: #4c6a98;
+  --color-cultura-tinta: #3d5a86;
+  --color-cultura-tinte: #e3e9f3;
+  --color-otros: #8a7530;
+  --color-otros-tinta: #6b5a24;
+  --color-otros-tinte: #f1ebd9;
+
+  /* ---------- Color · mapa (tomados de las pantallas, no del sistema de diseño) ---------- */
+  --color-ubicacion: #2f6fd6; /* punto «estás aquí» */
+  --color-ambar-claro: #f2c98a; /* estrella sobre fondo oscuro (pin seleccionado) */
+
+  /* ---------- Tipografía · familias (servidas desde el propio dominio, DIS-02) ---------- */
+  --font-titulos: "Bricolage Grotesque", sans-serif;
+  --font-interfaz: "Figtree", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+
+  /* ---------- Tipografía · escala (shorthand font: peso tamaño/interlineado familia) ---------- */
+  --text-display: 600 56px/1 var(--font-titulos);
+  --text-h1: 600 40px/1.05 var(--font-titulos);
+  --text-h2: 600 28px/1.1 var(--font-titulos);
+  --text-h3: 600 22px/1.2 var(--font-titulos);
+  --text-title: 700 17px/1.25 var(--font-interfaz);
+  --text-body-lg: 400 17px/1.55 var(--font-interfaz);
+  --text-body: 400 15px/1.5 var(--font-interfaz);
+  --text-label: 600 14px/1.3 var(--font-interfaz);
+  --text-caption: 500 12.5px/1.4 var(--font-interfaz);
+  --text-mono: 500 12px/1.4 var(--font-mono);
+
+  /* El tracking no cabe en el shorthand: se aplica junto al token de texto. */
+  --tracking-display: -0.04em;
+  --tracking-h1: -0.035em;
+  --tracking-h2: -0.02em;
+  --tracking-h3: -0.015em;
+  --tracking-mono: 0.02em;
+
+  /* ---------- Iconos (Material Symbols Rounded, contorno, peso 400) ---------- */
+  --icon-sm: 18px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+  --icon-xl: 26px;
+
+  /* ---------- Espaciado (base 4 px; siempre como gap o padding) ---------- */
+  --space-1: 4px; /* icono ↔ texto en insignias */
+  --space-2: 8px; /* gap entre chips */
+  --space-3: 12px; /* gap en listas compactas */
+  --space-4: 16px; /* padding de tarjeta, margen móvil */
+  --space-5: 20px; /* gap entre tarjetas */
+  --space-6: 24px; /* padding de panel, margen tablet */
+  --space-8: 32px; /* separación entre bloques */
+  --space-10: 40px; /* margen de página desktop */
+  --space-12: 48px; /* separación entre secciones */
+  --space-16: 64px; /* separación mayor */
+
+  /* ---------- Radios ---------- */
+  --radius-xs: 6px; /* etiquetas mono, badges */
+  --radius-sm: 8px; /* chips de atributo en tarjeta */
+  --radius-md: 12px; /* botones, inputs, controles de mapa */
+  --radius-lg: 16px; /* tarjetas de atributo y de lugar */
+  --radius-xl: 20px; /* paneles y secciones de ficha */
+  --radius-2xl: 24px; /* bottom sheet, mapa en inicio */
+  --radius-full: 999px; /* chips de filtro, pills, avatar */
+
+  /* ---------- Sombras ---------- */
+  --shadow-1: 0 1px 2px rgba(31, 29, 26, 0.05); /* tarjetas en reposo */
+  --shadow-2: 0 4px 14px rgba(31, 29, 26, 0.14); /* controles sobre el mapa */
+  --shadow-3: 0 2px 6px rgba(31, 29, 26, 0.08), 0 30px 60px rgba(31, 29, 26, 0.12); /* bottom sheet, popovers, modales */
+
+  /* ---------- Áreas táctiles ---------- */
+  --tap-chip: 36px; /* chip en desktop */
+  --tap-min: 44px; /* mínimo en móvil */
+  --tap-cta: 52px; /* acción principal */
+
+  /* ---------- Layout ---------- */
+  --margen-pagina: var(--space-4); /* móvil < 640 */
+  --ancho-panel: 440px; /* panel de resultados en desktop */
+}
+
+/* Los breakpoints no pueden ser variables CSS: 640 px (tablet) y 1024 px (desktop). */
+@media (min-width: 640px) {
+  :root {
+    --margen-pagina: var(--space-6);
+  }
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --margen-pagina: var(--space-10);
+  }
+}
