@@ -21,6 +21,7 @@ Los identificadores entre paréntesis remiten al registro de decisiones del MVP 
 senda/
 ├── frontend/      SPA React (Vite + TS)
 ├── backend/       API Django/GeoDjango
+├── design/    referencia visual (Claude Design)
 ├── docs/          visión, PRD, constitución y decisions/ (ADR)
 └── specs/         especificaciones SDD: NNN-nombre/{spec,plan,tasks}.md
 ```

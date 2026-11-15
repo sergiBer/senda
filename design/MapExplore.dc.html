@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;display=block">
+<style>body{margin:0;background:#F7F4EE}a{color:#2E5A4C}a:hover{color:#234539}</style>
+</helmet>
+<div data-screen-label="02 Mapa y resultados" style="width:1440px;height:900px;display:flex;flex-direction:column;background:#F7F4EE;font-family:'Figtree',sans-serif;color:#1F1D1A;overflow:hidden">
+  <dc-import name="AppHeader" search-value="Sant Antoni, Barcelona" hint-size="100%,64px"></dc-import>
+  <div style="flex:1;display:flex;min-height:0">
+    <aside style="width:440px;flex:none;background:#FFFEFB;border-right:1px solid #E4DDD2;display:flex;flex-direction:column;min-height:0;position:relative;z-index:2">
+      <sc-if value="{{ isResults }}" hint-placeholder-val="{{ true }}">
+        <div style="padding:20px 20px 14px;display:flex;flex-direction:column;gap:14px;border-bottom:1px solid #E4DDD2">
+          <div style="display:flex;align-items:flex-end;justify-content:space-between">
+            <div>
+              <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.02em;line-height:1.1">{{ countText }}</div>
+              <div style="font-size:13.5px;color:#57514A;margin-top:2px">En la zona visible del mapa</div>
+            </div>
+            <button style="display:flex;align-items:center;gap:4px;height:36px;padding:0 6px 0 10px;border:0;border-radius:8px;background:transparent;font:600 14px 'Figtree',sans-serif;color:#1F1D1A;cursor:pointer"><span style="color:#57514A;font-weight:500">Ordenar:</span> Relevancia<span class="material-symbols-rounded" style="font-size:20px">expand_more</span></button>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px">
+            <button style="display:flex;align-items:center;gap:6px;height:36px;padding:0 10px 0 10px;border:1.5px solid #1F1D1A;border-radius:999px;background:#fff;font:600 14px 'Figtree',sans-serif;color:#1F1D1A;cursor:pointer"><span class="material-symbols-rounded" style="font-size:18px">tune</span>Filtros<span style="min-width:20px;height:20px;border-radius:10px;background:#1F1D1A;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center">{{ nFilters }}</span></button>
+            <button style="display:flex;align-items:center;gap:5px;height:36px;padding:0 12px 0 8px;border:1.5px solid #2E5A4C;border-radius:999px;background:#2E5A4C;font:600 14px 'Figtree',sans-serif;color:#fff;cursor:pointer"><span class="material-symbols-rounded" style="font-size:18px">check</span>0–3 años</button>
+            <button style="display:flex;align-items:center;gap:5px;height:36px;padding:0 12px 0 8px;border:1.5px solid #2E5A4C;border-radius:999px;background:#2E5A4C;font:600 14px 'Figtree',sans-serif;color:#fff;cursor:pointer"><span class="material-symbols-rounded" style="font-size:18px">check</span>Carrito</button>
+            <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}"><button style="display:flex;align-items:center;gap:5px;height:36px;padding:0 8px 0 8px;border:1.5px solid #2E5A4C;border-radius:999px;background:#2E5A4C;font:600 14px 'Figtree',sans-serif;color:#fff;cursor:pointer"><span class="material-symbols-rounded" style="font-size:18px">check</span>Cambiador<span class="material-symbols-rounded" style="font-size:17px;margin-left:2px">close</span></button></sc-if>
+            <button style="display:flex;align-items:center;gap:5px;height:36px;padding:0 12px 0 9px;border:1px solid #D3CABC;border-radius:999px;background:#fff;font:500 14px 'Figtree',sans-serif;color:#1F1D1A;cursor:pointer"><span class="material-symbols-rounded" style="font-size:18px">park</span>Sombra</button>
+            <button style="display:flex;align-items:center;gap:5px;height:36px;padding:0 12px 0 9px;border:1px solid #D3CABC;border-radius:999px;background:#fff;font:500 14px 'Figtree',sans-serif;color:#1F1D1A;cursor:pointer"><span class="material-symbols-rounded" style="font-size:18px">wc</span>WC</button>
+            <button style="display:flex;align-items:center;gap:5px;height:36px;padding:0 12px;border:1px solid #D3CABC;border-radius:999px;background:#fff;font:500 14px 'Figtree',sans-serif;color:#1F1D1A;cursor:pointer">Gratis</button>
+          </div>
+          <div style="display:flex;gap:4px;padding:4px;background:#EFEAE1;border-radius:12px">
+            <button style="flex:1;height:34px;border:0;border-radius:9px;background:#fff;box-shadow:0 1px 3px rgba(31,29,26,0.12);font:600 13.5px 'Figtree',sans-serif;color:#1F1D1A">Todos</button>
+            <button style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px;height:34px;border:0;border-radius:9px;background:transparent;font:500 13.5px 'Figtree',sans-serif;color:#3A352F"><span class="material-symbols-rounded" style="font-size:16px;color:#B45F3E">extension</span>Juego</button>
+            <button style="flex:1.3;display:flex;align-items:center;justify-content:center;gap:4px;height:34px;border:0;border-radius:9px;background:transparent;font:500 13.5px 'Figtree',sans-serif;color:#3A352F"><span class="material-symbols-rounded" style="font-size:16px;color:#3E7656">forest</span>Naturaleza</button>
+            <button style="flex:1;display:flex;align-items:center;justify-content:center;gap:4px;height:34px;border:0;border-radius:9px;background:transparent;font:500 13.5px 'Figtree',sans-serif;color:#3A352F"><span class="material-symbols-rounded" style="font-size:16px;color:#4C6A98">museum</span>Cultura</button>
+            <button style="flex:0.8;height:34px;border:0;border-radius:9px;background:transparent;font:500 13.5px 'Figtree',sans-serif;color:#3A352F">Otros</button>
+          </div>
+        </div>
+        <div style="flex:1;overflow:hidden;padding:10px 12px;display:flex;flex-direction:column;gap:6px">
+          <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:12px;margin:4px 0 8px;padding:18px;border-radius:16px;background:#F7F4EE;border:1.5px dashed #C4BAAA">
+              <div style="display:flex;gap:12px;align-items:flex-start">
+                <span style="width:40px;height:40px;flex:none;border-radius:50%;background:#FFFEFB;border:1px solid #E4DDD2;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:22px;color:#57514A">baby_changing_station</span></span>
+                <div style="display:flex;flex-direction:column;gap:4px">
+                  <div style="font-weight:700;font-size:16px;line-height:1.3">Pocos lugares tienen «Cambiador» confirmado</div>
+                  <div style="font-size:14px;line-height:1.5;color:#3A352F;text-wrap:pretty">Solo 2 lugares de esta zona tienen el dato confirmado por familias. Otros pueden tenerlo, pero todavía nadie lo ha indicado.</div>
+                </div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;flex-wrap:wrap">
+                <button style="display:flex;align-items:center;gap:6px;height:44px;padding:0 16px;border:0;border-radius:12px;background:#2E5A4C;color:#fff;font:600 14.5px 'Figtree',sans-serif;cursor:pointer"><span class="material-symbols-rounded" style="font-size:19px">filter_alt_off</span>Quitar «Cambiador» · ver 31</button>
+                <span style="font-size:13px;color:#57514A">¿Conoces alguno? Añade el dato desde su ficha.</span>
+              </div>
+            </div>
+          </sc-if>
+          <sc-for list="{{ results }}" as="r" hint-placeholder-count="5">
+            <div style="display:flex;gap:14px;padding:12px;border-radius:16px;background:{{ r.bg }};border:1px solid {{ r.border }};cursor:pointer">
+              <div style="width:96px;height:96px;flex:none;border-radius:12px;background:repeating-linear-gradient(135deg,{{ r.tint }} 0 8px,{{ r.tint2 }} 8px 16px)"></div>
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:5px">
+                <div style="display:flex;align-items:center;gap:5px;font-weight:700;font-size:11.5px;letter-spacing:0.05em;text-transform:uppercase;color:{{ r.ink }}"><span class="material-symbols-rounded" style="font-size:15px">{{ r.icon }}</span>{{ r.sub }}</div>
+                <div style="font-weight:700;font-size:16px;line-height:1.25">{{ r.name }}</div>
+                <div style="display:flex;align-items:center;gap:4px;font-size:13.5px;color:#57514A"><span class="material-symbols-rounded" style="font-size:16px;color:#C98A1B;font-variation-settings:'FILL' 1">star</span><strong style="color:#1F1D1A">{{ r.rating }}</strong> {{ r.rev }} · {{ r.dist }} · {{ r.price }}</div>
+                <div style="display:flex;flex-wrap:wrap;gap:5px;margin-top:2px">
+                  <sc-for list="{{ r.attrs }}" as="a" hint-placeholder-count="3">
+                    <span style="display:inline-flex;align-items:center;gap:3px;height:24px;padding:0 7px;border-radius:7px;background:{{ a.bg }};color:{{ a.fg }};font-size:12px;font-weight:{{ a.fw }}"><span class="material-symbols-rounded" style="font-size:15px">{{ a.icon }}</span>{{ a.label }}</span>
+                  </sc-for>
+                </div>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ isFilters }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 16px 16px 20px;border-bottom:1px solid #E4DDD2">
+          <div style="display:flex;align-items:center;gap:10px"><button aria-label="Volver a resultados" style="width:40px;height:40px;border:0;border-radius:10px;background:#EFEAE1;display:flex;align-items:center;justify-content:center;cursor:pointer"><span class="material-symbols-rounded" style="font-size:22px">arrow_back</span></button><div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:24px;letter-spacing:-0.02em">Filtros</div></div>
+          <a href="#" style="font-weight:600;font-size:14.5px">Borrar todo</a>
+        </div>
+        <div style="flex:1;min-height:0;overflow-y:auto;padding:16px 20px 24px;display:flex;flex-direction:column;gap:18px">
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline"><div style="font-weight:700;font-size:16px">Edad de los niños</div><div style="font-size:13px;color:#756D63">Puedes elegir varias</div></div>
+            <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+              <button style="height:50px;border:1.5px solid #2E5A4C;border-radius:12px;background:#E2ECE6;color:#234539;font:600 14px 'Figtree',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px"><span style="display:flex;align-items:center;gap:4px"><span class="material-symbols-rounded" style="font-size:17px">check_circle</span>0–3 años</span><span style="font-weight:500;font-size:12px">Bebés</span></button>
+              <button style="height:50px;border:1px solid #D3CABC;border-radius:12px;background:#fff;color:#1F1D1A;font:600 14px 'Figtree',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px"><span>4–7 años</span><span style="font-weight:500;font-size:12px;color:#57514A">Infantil</span></button>
+              <button style="height:50px;border:1px solid #D3CABC;border-radius:12px;background:#fff;color:#1F1D1A;font:600 14px 'Figtree',sans-serif;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1px"><span>8–12 años</span><span style="font-weight:500;font-size:12px;color:#57514A">Mayores</span></button>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="font-weight:700;font-size:16px">Tipo de lugar</div>
+            <div style="border:1px solid #E4DDD2;border-radius:14px;overflow:hidden;background:#fff">
+              <div style="display:flex;align-items:center;gap:12px;height:46px;padding:0 14px;flex:none">
+                <span style="width:22px;height:22px;border-radius:6px;background:#2E5A4C;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:18px">remove</span></span>
+                <span style="width:26px;height:26px;border-radius:50%;background:#B45F3E;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:16px">extension</span></span>
+                <span style="flex:1;font-weight:600;font-size:15px">Juego y ocio</span><span style="font-size:13px;color:#57514A">2 de 3</span><span class="material-symbols-rounded" style="font-size:22px;color:#57514A">expand_less</span>
+              </div>
+              <div style="display:flex;flex-direction:column;padding:0 14px 8px 48px">
+                <div style="display:flex;align-items:center;gap:12px;height:34px"><span style="width:20px;height:20px;border-radius:6px;background:#2E5A4C;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:16px">check</span></span><span style="font-size:14.5px">Parques infantiles</span></div>
+                <div style="display:flex;align-items:center;gap:12px;height:34px"><span style="width:20px;height:20px;border-radius:6px;background:#2E5A4C;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:16px">check</span></span><span style="font-size:14.5px">Ludotecas</span></div>
+                <div style="display:flex;align-items:center;gap:12px;height:34px"><span style="width:20px;height:20px;border-radius:6px;border:2px solid #C4BAAA;box-sizing:border-box"></span><span style="font-size:14.5px">Centros de ocio</span></div>
+              </div>
+              <div style="display:flex;align-items:center;gap:12px;height:46px;padding:0 14px;border-top:1px solid #EFEAE1"><span style="width:22px;height:22px;border-radius:6px;border:2px solid #C4BAAA;box-sizing:border-box"></span><span style="width:26px;height:26px;border-radius:50%;background:#3E7656;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:16px">forest</span></span><span style="flex:1;font-weight:600;font-size:15px">Naturaleza y aire libre</span><span class="material-symbols-rounded" style="font-size:22px;color:#57514A">expand_more</span></div>
+              <div style="display:flex;align-items:center;gap:12px;height:46px;padding:0 14px;border-top:1px solid #EFEAE1"><span style="width:22px;height:22px;border-radius:6px;border:2px solid #C4BAAA;box-sizing:border-box"></span><span style="width:26px;height:26px;border-radius:50%;background:#4C6A98;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:16px">museum</span></span><span style="flex:1;font-weight:600;font-size:15px">Cultura y aprendizaje</span><span class="material-symbols-rounded" style="font-size:22px;color:#57514A">expand_more</span></div>
+              <div style="display:flex;align-items:center;gap:12px;height:46px;padding:0 14px;border-top:1px solid #EFEAE1"><span style="width:22px;height:22px;border-radius:6px;border:2px solid #C4BAAA;box-sizing:border-box"></span><span style="width:26px;height:26px;border-radius:50%;background:#8A7535;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:16px">family_restroom</span></span><span style="flex:1;font-weight:600;font-size:15px">Otros planes familiares</span><span class="material-symbols-rounded" style="font-size:22px;color:#57514A">expand_more</span></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="font-weight:700;font-size:16px">Lo que necesitas</div>
+            <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px">
+              <sc-for list="{{ toggles }}" as="t" hint-placeholder-count="8">
+                <button style="display:flex;align-items:center;gap:10px;height:44px;padding:0 12px;border:{{ t.border }};border-radius:12px;background:{{ t.bg }};color:{{ t.fg }};font:600 14px 'Figtree',sans-serif;text-align:left;cursor:pointer"><span class="material-symbols-rounded" style="font-size:20px">{{ t.icon }}</span><span style="flex:1">{{ t.label }}</span><sc-if value="{{ t.on }}"><span class="material-symbols-rounded" style="font-size:19px;font-variation-settings:'FILL' 1">check_circle</span></sc-if></button>
+              </sc-for>
+            </div>
+          </div>
+          
+        </div>
+        <div style="display:flex;gap:10px;padding:14px 20px;border-top:1px solid #E4DDD2;background:#FFFEFB">
+          <button style="height:50px;padding:0 18px;border:1px solid #D3CABC;border-radius:12px;background:#fff;font:600 15px 'Figtree',sans-serif;color:#1F1D1A">Borrar</button>
+          <button style="flex:1;height:50px;border:0;border-radius:12px;background:#2E5A4C;color:#fff;font:600 16px 'Figtree',sans-serif">Mostrar 12 lugares</button>
+        </div>
+      </sc-if>
+    </aside>
+    <main style="flex:1;position:relative;min-width:0">
+      <dc-import name="MapCanvas" zoom="{{ 13 }}" pan-x="{{ -30 }}" pan-y="{{ -60 }}" selected="{{ selected }}" only="{{ only }}" user="{{ true }}" clusters="{{ showClusters }}" layer="{{ layer }}" hint-size="100%,100%" style="position:absolute;inset:0"></dc-import>
+      <sc-if value="{{ isResults }}" hint-placeholder-val="{{ true }}">
+        <button style="position:absolute;top:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;height:42px;padding:0 18px;border:0;border-radius:999px;background:#FFFEFB;box-shadow:0 4px 16px rgba(31,29,26,0.16);font:600 14.5px 'Figtree',sans-serif;color:#1F1D1A;z-index:10;cursor:pointer"><span class="material-symbols-rounded" style="font-size:19px">refresh</span>Buscar en esta zona</button>
+      </sc-if>
+      <sc-if value="{{ isFilters }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute;top:16px;left:50%;transform:translateX(-50%);display:flex;align-items:center;gap:8px;height:42px;padding:0 18px;border-radius:999px;background:#1F1D1A;color:#fff;box-shadow:0 4px 16px rgba(31,29,26,0.2);font-weight:600;font-size:14.5px;z-index:10"><span class="material-symbols-rounded" style="font-size:19px">visibility</span>Vista previa: 12 lugares coinciden</div>
+      </sc-if>
+      <div role="group" aria-label="Capa del mapa" style="position:absolute;right:16px;bottom:30px;display:flex;gap:2px;padding:4px;background:#FFFEFB;border-radius:12px;box-shadow:0 4px 14px rgba(31,29,26,0.14);z-index:10">
+        <button aria-pressed="{{ isBaseStr }}" style="display:flex;align-items:center;gap:5px;height:36px;padding:0 12px;border:0;border-radius:9px;background:{{ baseBg }};color:{{ baseFg }};font:600 13.5px 'Figtree',sans-serif;cursor:pointer"><span class="material-symbols-rounded" style="font-size:18px">map</span>Mapa</button>
+        <button aria-pressed="{{ isOrthoStr }}" style="display:flex;align-items:center;gap:5px;height:36px;padding:0 12px;border:0;border-radius:9px;background:{{ orthoBg }};color:{{ orthoFg }};font:600 13.5px 'Figtree',sans-serif;cursor:pointer"><span class="material-symbols-rounded" style="font-size:18px">satellite_alt</span>Ortofoto</button>
+      </div>
+      <div style="position:absolute;top:16px;right:16px;display:flex;flex-direction:column;gap:10px;z-index:10">
+        <div style="display:flex;flex-direction:column;background:#FFFEFB;border-radius:12px;box-shadow:0 4px 14px rgba(31,29,26,0.14);overflow:hidden">
+          <button aria-label="Acercar" style="width:44px;height:44px;border:0;background:transparent;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:22px">add</span></button>
+          <div style="height:1px;background:#E4DDD2"></div>
+          <button aria-label="Alejar" style="width:44px;height:44px;border:0;background:transparent;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:22px">remove</span></button>
+        </div>
+        <button aria-label="Mi ubicación" style="width:44px;height:44px;border:0;border-radius:12px;background:#FFFEFB;box-shadow:0 4px 14px rgba(31,29,26,0.14);display:flex;align-items:center;justify-content:center;color:#2F6FD6"><span class="material-symbols-rounded" style="font-size:22px">my_location</span></button>
+      </div>
+      <div style="position:absolute;left:16px;bottom:24px;display:flex;align-items:center;gap:14px;padding:10px 14px;background:rgba(255,254,251,0.96);border-radius:12px;box-shadow:0 4px 14px rgba(31,29,26,0.12);font-size:13px;font-weight:500;z-index:10">
+        <span style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#B45F3E;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:12px">extension</span></span>Juego</span>
+        <span style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#3E7656;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:12px">forest</span></span>Naturaleza</span>
+        <span style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#4C6A98;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:12px">museum</span></span>Cultura</span>
+        <span style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#8A7535;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:12px">family_restroom</span></span>Otros</span>
+        <span style="display:flex;align-items:center;gap:6px"><span style="width:18px;height:18px;border-radius:50%;background:#2E5A4C;color:#fff;font-size:10px;font-weight:700;display:flex;align-items:center;justify-content:center">9</span>Agrupados</span>
+      </div>
+    </main>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:900},&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;results&quot;,&quot;filters&quot;,&quot;empty&quot;],&quot;default&quot;:&quot;results&quot;,&quot;tsType&quot;:&quot;'results'|'filters'|'empty'&quot;},&quot;layer&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;base&quot;,&quot;ortho&quot;],&quot;default&quot;:&quot;base&quot;,&quot;tsType&quot;:&quot;'base'|'ortho'&quot;}}">
+const C = { jue: { ink: '#9A4E31', tint: '#F6E6DD', tint2: '#F0DACE', icon: 'extension' }, nat: { ink: '#2F6246', tint: '#E1EEE5', tint2: '#D3E5D9', icon: 'forest' }, cul: { ink: '#3D5A86', tint: '#E3E9F3', tint2: '#D5DEEC', icon: 'museum' }, otr: { ink: '#6B5A24', tint: '#F1EBD9', tint2: '#E8DFC7', icon: 'family_restroom' } };
+const A = { edad: ['child_care', '0–3 años'], carrito: ['stroller', 'Carrito'], pmr: ['accessible', 'PMR'], sombra: ['park', 'Sombra'], wc: ['wc', 'WC'], cambiador: ['baby_changing_station', 'Cambiador'], fuente: ['water_drop', 'Fuente'], picnic: ['deck', 'Picnic'], vallado: ['fence', 'Vallado'], bancos: ['chair', 'Bancos'], parking: ['local_parking', 'Parking'], rest: ['restaurant', 'Comida cerca'] };
+const MATCH = ['edad', 'carrito'];
+const RES = [
+  { id: 'joanmiro', cat: 'jue', sub: 'Parque infantil', name: 'Parc de Joan Miró', rating: '4,5', reviews: 132, dist: '800 m', price: 'Gratis', attrs: ['edad', 'carrito', 'vallado', 'sombra'] },
+  { id: 'santantoni', cat: 'cul', sub: 'Biblioteca', name: 'Biblioteca Sant Antoni – Joan Oliver', rating: '4,8', reviews: 64, dist: '350 m', price: 'Gratis', attrs: ['edad', 'carrito', 'cambiador', 'wc'] },
+  { id: 'ludo', cat: 'jue', sub: 'Ludoteca', name: 'Ludoteca El Drac', rating: '4,9', reviews: 41, dist: '1,5 km', price: 'Gratis', attrs: ['edad', 'carrito', 'cambiador'] },
+  { id: 'brossa', cat: 'jue', sub: 'Parque infantil', name: 'Jardins de Joan Brossa', rating: '4,5', reviews: 88, dist: '1,8 km', price: 'Gratis', attrs: ['edad', 'carrito', 'sombra', 'fuente'] },
+  { id: 'ciutadella', cat: 'nat', sub: 'Parque urbano', name: 'Parc de la Ciutadella', rating: '4,6', reviews: 214, dist: '2,1 km', price: 'Gratis', attrs: ['edad', 'carrito', 'sombra', 'picnic'] }
+];
+const TOG = [['carrito', 1], ['sombra', 1], ['wc', 0], ['cambiador', 0], ['vallado', 0], ['picnic', 0], ['fuente', 0], ['parking', 0], ['pmr', 0], ['rest', 0]];
+class Component extends DCLogic {
+  renderVals() {
+    const mode = this.props.mode || 'results', filters = mode === 'filters', empty = mode === 'empty';
+    const match = empty ? [...MATCH, 'cambiador'] : MATCH, ortho = (this.props.layer ?? (empty ? 'ortho' : 'base')) === 'ortho';
+    const list = empty ? RES.filter(r => r.id === 'santantoni' || r.id === 'ludo') : RES;
+    const results = list.map((r, i) => ({ ...r, ...C[r.cat], rev: `(${r.reviews})`, bg: i === 0 ? '#EEF4F0' : '#FFFEFB', border: i === 0 ? '#9DBBAA' : 'transparent',
+      attrs: r.attrs.map(k => { const m = match.includes(k); return { icon: A[k][0], label: A[k][1], bg: m ? '#E2ECE6' : '#EFEAE1', fg: m ? '#234539' : '#3A352F', fw: m ? 700 : 500 }; }) }));
+    const toggles = TOG.map(([k, on]) => ({ icon: A[k][0], label: A[k][1], on: !!on, bg: on ? '#E2ECE6' : '#fff', fg: on ? '#234539' : '#1F1D1A', border: on ? '1.5px solid #2E5A4C' : '1px solid #D3CABC' }));
+    return { isResults: !filters, isFilters: filters, isEmpty: empty, results, toggles, selected: filters ? '' : empty ? 'santantoni' : 'joanmiro',
+      only: filters ? 'joanmiro,santantoni,ludo,brossa,ciutadella,espaifam,oreneta,espanya,casal,diagonalmar,clot,fuster' : empty ? 'santantoni,ludo' : '',
+      showClusters: mode === 'results', countText: empty ? '2 lugares' : '34 lugares', nFilters: empty ? 3 : 2, layer: ortho ? 'ortho' : 'base',
+      isBaseStr: String(!ortho), isOrthoStr: String(ortho), baseBg: ortho ? 'transparent' : '#1F1D1A', baseFg: ortho ? '#3A352F' : '#fff', orthoBg: ortho ? '#1F1D1A' : 'transparent', orthoFg: ortho ? '#fff' : '#3A352F' };
+  }
+}
+</script>
+</body>
+</html>

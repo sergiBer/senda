@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Senda · Sistema de diseño</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;display=block">
+<style>body{margin:0;background:#F7F4EE}a{color:#2E5A4C}a:hover{color:#234539}</style>
+</helmet>
+<div data-screen-label="Sistema de diseño" style="min-height:100vh;background:#F7F4EE;font-family:'Figtree',sans-serif;color:#1F1D1A">
+  <div style="max-width:1280px;margin:0 auto;padding:56px 40px 96px;display:flex;flex-direction:column;gap:64px">
+
+    <header style="display:flex;flex-direction:column;gap:12px;max-width:760px">
+      <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A;letter-spacing:0.04em">SENDA · SISTEMA DE DISEÑO · V0.2</div>
+      <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.04em;line-height:1">Fundamentos</h1>
+      <p style="margin:0;font-size:17px;line-height:1.55;color:#3A352F;text-wrap:pretty">Colores, tipografía, espaciado, radios e iconografía usados en todas las pantallas. Un icono por concepto: ninguno se repite entre categorías, subcategorías y atributos.</p>
+      <nav style="display:flex;flex-wrap:wrap;gap:8px;margin-top:8px">
+        <a href="#colores" style="height:34px;padding:0 14px;display:flex;align-items:center;border:1px solid #D3CABC;border-radius:999px;background:#FFFEFB;font-weight:600;font-size:14px;text-decoration:none;color:#1F1D1A">Colores</a>
+        <a href="#tipografia" style="height:34px;padding:0 14px;display:flex;align-items:center;border:1px solid #D3CABC;border-radius:999px;background:#FFFEFB;font-weight:600;font-size:14px;text-decoration:none;color:#1F1D1A">Tipografía</a>
+        <a href="#espaciado" style="height:34px;padding:0 14px;display:flex;align-items:center;border:1px solid #D3CABC;border-radius:999px;background:#FFFEFB;font-weight:600;font-size:14px;text-decoration:none;color:#1F1D1A">Espaciado</a>
+        <a href="#radios" style="height:34px;padding:0 14px;display:flex;align-items:center;border:1px solid #D3CABC;border-radius:999px;background:#FFFEFB;font-weight:600;font-size:14px;text-decoration:none;color:#1F1D1A">Radios</a>
+        <a href="#atributos" style="height:34px;padding:0 14px;display:flex;align-items:center;border:1px solid #D3CABC;border-radius:999px;background:#FFFEFB;font-weight:600;font-size:14px;text-decoration:none;color:#1F1D1A">Atributos</a>
+        <a href="#categorias" style="height:34px;padding:0 14px;display:flex;align-items:center;border:1px solid #D3CABC;border-radius:999px;background:#FFFEFB;font-weight:600;font-size:14px;text-decoration:none;color:#1F1D1A">Categorías</a>
+      </nav>
+    </header>
+
+    <section id="colores" style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid #1F1D1A;padding-bottom:12px"><span style="font:600 13px 'JetBrains Mono',monospace;color:#57514A">01</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.025em">Colores</h2></div>
+      <sc-for list="{{ colorGroups }}" as="g" hint-placeholder-count="4">
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div style="display:flex;align-items:baseline;gap:12px;flex-wrap:wrap"><h3 style="margin:0;font-size:17px;font-weight:700">{{ g.title }}</h3><span style="font-size:14px;color:#57514A">{{ g.note }}</span></div>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(168px,1fr));gap:12px">
+            <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="5">
+              <div style="display:flex;flex-direction:column;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:14px;overflow:hidden">
+                <div style="height:76px;background:{{ c.hex }};border-bottom:1px solid rgba(31,29,26,0.06);display:flex;align-items:flex-end;padding:8px 10px;box-sizing:border-box"><span style="font:600 13px 'Figtree',sans-serif;color:{{ c.on }}">{{ c.sample }}</span></div>
+                <div style="padding:10px 12px;display:flex;flex-direction:column;gap:2px">
+                  <span style="font-weight:700;font-size:14px">{{ c.name }}</span>
+                  <span style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">{{ c.hex }}</span>
+                  <span style="font-size:12.5px;color:#57514A;line-height:1.4">{{ c.use }}</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </sc-for>
+    </section>
+
+    <section id="tipografia" style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid #1F1D1A;padding-bottom:12px"><span style="font:600 13px 'JetBrains Mono',monospace;color:#57514A">02</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.025em">Tipografía</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+        <div style="display:flex;flex-direction:column;gap:10px;padding:24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+          <span style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">TITULARES</span>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.04em;line-height:1">Aa</span>
+          <span style="font-weight:700;font-size:16px">Bricolage Grotesque</span>
+          <span style="font-size:14px;color:#57514A;line-height:1.5">500 · 600 · 700. Tracking negativo en tamaños grandes. Solo títulos de pantalla y sección.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;padding:24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+          <span style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">CUERPO E INTERFAZ</span>
+          <span style="font-weight:600;font-size:56px;line-height:1">Aa</span>
+          <span style="font-weight:700;font-size:16px">Figtree</span>
+          <span style="font-size:14px;color:#57514A;line-height:1.5">400 · 500 · 600 · 700. Texto, botones, chips, formularios y datos.</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:10px;padding:24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+          <span style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">ICONOS</span>
+          <span style="display:flex;gap:6px;height:56px;align-items:center"><span class="material-symbols-rounded" style="font-size:44px">stroller</span><span class="material-symbols-rounded" style="font-size:44px">forest</span><span class="material-symbols-rounded" style="font-size:44px;color:#C98A1B;font-variation-settings:'FILL' 1">star</span></span>
+          <span style="font-weight:700;font-size:16px">Material Symbols Rounded</span>
+          <span style="font-size:14px;color:#57514A;line-height:1.5">Contorno, peso 400. Relleno solo en estrellas y estados activos. Tamaños 18 · 20 · 24 · 26.</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px;overflow:hidden">
+        <sc-for list="{{ typeScale }}" as="t" hint-placeholder-count="10">
+          <div style="display:grid;grid-template-columns:110px minmax(0,1fr) auto;gap:16px;align-items:center;padding:16px 24px;border-top:1px solid #EFEAE1">
+            <span style="font:600 12.5px 'JetBrains Mono',monospace;color:#2E5A4C">{{ t.token }}</span>
+            <span style="font-family:{{ t.family }};font-weight:{{ t.weight }};font-size:{{ t.size }};letter-spacing:{{ t.ls }};line-height:{{ t.lh }};text-wrap:balance;min-width:0">{{ t.sample }}</span>
+            <span style="font:500 12px 'JetBrains Mono',monospace;color:#57514A;text-align:right">{{ t.spec }}</span>
+          </div>
+        </sc-for>
+      </div>
+    </section>
+
+    <section id="espaciado" style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid #1F1D1A;padding-bottom:12px"><span style="font:600 13px 'JetBrains Mono',monospace;color:#57514A">03</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.025em">Espaciado</h2><span style="font-size:14px;color:#57514A">Base 4 px · se usa siempre como <code>gap</code> o <code>padding</code></span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:20px">
+        <div style="display:flex;flex-direction:column;padding:12px 24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+          <sc-for list="{{ spacing }}" as="s" hint-placeholder-count="10">
+            <div style="display:grid;grid-template-columns:72px 56px minmax(0,1fr);gap:16px;align-items:center;padding:9px 0;border-top:1px solid #EFEAE1">
+              <span style="font:600 12.5px 'JetBrains Mono',monospace;color:#2E5A4C">{{ s.token }}</span>
+              <span style="font:500 12.5px 'JetBrains Mono',monospace;color:#57514A">{{ s.px }}</span>
+              <div style="display:flex;align-items:center;gap:12px;min-width:0"><span style="flex:none;height:16px;width:{{ s.w }};background:#2E5A4C;border-radius:3px"></span><span style="font-size:13px;color:#57514A;line-height:1.35">{{ s.use }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:16px">
+          <div style="display:flex;flex-direction:column;gap:12px;padding:24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+            <span style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">ÁREAS TÁCTILES</span>
+            <div style="display:flex;align-items:flex-end;gap:14px;flex-wrap:wrap">
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="height:36px;padding:0 12px;display:flex;align-items:center;border:1px dashed #2E5A4C;border-radius:999px;font-size:13px;font-weight:600">Chip 36</span><span style="font-size:12px;color:#57514A">desktop</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="height:44px;padding:0 16px;display:flex;align-items:center;border:1px dashed #2E5A4C;border-radius:12px;font-size:13px;font-weight:600">Mín. 44</span><span style="font-size:12px;color:#57514A">móvil</span></div>
+              <div style="display:flex;flex-direction:column;align-items:center;gap:6px"><span style="height:52px;padding:0 20px;display:flex;align-items:center;border:1px dashed #2E5A4C;border-radius:12px;font-size:13px;font-weight:600">CTA 52</span><span style="font-size:12px;color:#57514A">principal</span></div>
+            </div>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:12px;padding:24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+            <span style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">MÁRGENES DE PÁGINA</span>
+            <div style="display:flex;flex-direction:column;gap:8px;font-size:14px;color:#3A352F">
+              <div style="display:flex;justify-content:space-between;gap:12px"><span>Desktop ≥ 1024</span><strong style="font-family:'JetBrains Mono',monospace;font-size:13px">40 px · panel 440</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px"><span>Tablet 640–1023</span><strong style="font-family:'JetBrains Mono',monospace;font-size:13px">24 px</strong></div>
+              <div style="display:flex;justify-content:space-between;gap:12px"><span>Móvil &lt; 640</span><strong style="font-family:'JetBrains Mono',monospace;font-size:13px">16 px</strong></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="radios" style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid #1F1D1A;padding-bottom:12px"><span style="font:600 13px 'JetBrains Mono',monospace;color:#57514A">04</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.025em">Radios</h2></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px">
+        <sc-for list="{{ radii }}" as="r" hint-placeholder-count="7">
+          <div style="display:flex;flex-direction:column;gap:12px;padding:18px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:16px">
+            <div style="height:80px;background:#E2ECE6;border:1.5px solid #2E5A4C;border-radius:{{ r.css }}"></div>
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px"><span style="font:600 12.5px 'JetBrains Mono',monospace;color:#2E5A4C">{{ r.token }}</span><span style="font:500 12.5px 'JetBrains Mono',monospace;color:#57514A">{{ r.px }}</span></div>
+            <span style="font-size:13px;color:#57514A;line-height:1.4">{{ r.use }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px">
+        <div style="display:flex;align-items:center;gap:14px;padding:18px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:16px;box-shadow:0 1px 2px rgba(31,29,26,0.05)"><span style="flex:none;white-space:nowrap;font:600 12.5px 'JetBrains Mono',monospace;color:#2E5A4C">shadow-1</span><span style="font-size:13px;color:#57514A">Tarjetas en reposo</span></div>
+        <div style="display:flex;align-items:center;gap:14px;padding:18px;background:#FFFEFB;border-radius:16px;box-shadow:0 4px 14px rgba(31,29,26,0.14)"><span style="flex:none;white-space:nowrap;font:600 12.5px 'JetBrains Mono',monospace;color:#2E5A4C">shadow-2</span><span style="font-size:13px;color:#57514A">Controles sobre el mapa</span></div>
+        <div style="display:flex;align-items:center;gap:14px;padding:18px;background:#FFFEFB;border-radius:16px;box-shadow:0 2px 6px rgba(31,29,26,0.08),0 30px 60px rgba(31,29,26,0.12)"><span style="flex:none;white-space:nowrap;font:600 12.5px 'JetBrains Mono',monospace;color:#2E5A4C">shadow-3</span><span style="font-size:13px;color:#57514A">Bottom sheet, popovers, modales</span></div>
+      </div>
+    </section>
+
+    <section id="atributos" style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid #1F1D1A;padding-bottom:12px;flex-wrap:wrap"><span style="font:600 13px 'JetBrains Mono',monospace;color:#57514A">05</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.025em">Atributos familiares</h2><span style="font-size:14px;color:#57514A">Icono + nombre + estado. El estado nunca se comunica solo con color.</span></div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <h3 style="margin:0;font-size:17px;font-weight:700">Estados</h3>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px">
+          <sc-for list="{{ states }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;flex-direction:column;gap:12px">
+              <div style="display:flex;flex-direction:column;gap:10px;padding:16px;min-height:120px;box-sizing:border-box;background:{{ s.bg }};border:{{ s.border }};border-radius:16px">
+                <span class="material-symbols-rounded" style="font-size:26px;color:{{ s.iconColor }}">baby_changing_station</span>
+                <span style="font-weight:700;font-size:15px;color:{{ s.labelColor }}">Cambiador</span>
+                <span style="display:flex;align-items:center;gap:4px;font-weight:700;font-size:13.5px;color:{{ s.stColor }}"><span class="material-symbols-rounded" style="font-size:18px">{{ s.stIcon }}</span>{{ s.st }}</span>
+              </div>
+              <div style="display:flex;flex-direction:column;gap:2px;font-size:13px;color:#57514A;line-height:1.45"><span style="font:500 12px 'JetBrains Mono',monospace">{{ s.spec }}</span>{{ s.rule }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <h3 style="margin:0;font-size:17px;font-weight:700">Catálogo de atributos</h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px">
+          <sc-for list="{{ attrs }}" as="a" hint-placeholder-count="12">
+            <div style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:14px">
+              <span style="width:44px;height:44px;flex:none;border-radius:12px;background:#EFEAE1;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:26px;color:#1F1D1A">{{ a.icon }}</span></span>
+              <div style="flex:1;min-width:0;display:flex;flex-direction:column;gap:2px">
+                <span style="font-weight:700;font-size:15px">{{ a.label }}</span>
+                <span style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">{{ a.icon }}</span>
+              </div>
+              <span style="font-size:12px;font-weight:600;color:#57514A;padding:3px 8px;border-radius:6px;background:#F7F4EE">{{ a.group }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <h3 style="margin:0;font-size:17px;font-weight:700">Usos del atributo</h3>
+        <div style="display:flex;flex-wrap:wrap;gap:28px;align-items:center;padding:20px 24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+          <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11.5px 'JetBrains Mono',monospace;color:#57514A">FILTRO · INACTIVO / ACTIVO</span><div style="display:flex;gap:8px"><span style="display:flex;align-items:center;gap:6px;height:36px;padding:0 14px 0 10px;border:1px solid #D3CABC;border-radius:999px;background:#fff;font-weight:600;font-size:14px"><span class="material-symbols-rounded" style="font-size:19px">wc</span>WC</span><span style="display:flex;align-items:center;gap:6px;height:36px;padding:0 14px 0 10px;border:1.5px solid #2E5A4C;border-radius:999px;background:#2E5A4C;color:#fff;font-weight:600;font-size:14px"><span class="material-symbols-rounded" style="font-size:19px">check</span>Carrito</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11.5px 'JetBrains Mono',monospace;color:#57514A">TARJETA · COINCIDE / NEUTRO</span><div style="display:flex;gap:6px"><span style="display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 8px;border-radius:8px;background:#E2ECE6;color:#234539;font-size:12.5px;font-weight:600"><span class="material-symbols-rounded" style="font-size:16px">stroller</span>Carrito</span><span style="display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 8px;border-radius:8px;background:#EFEAE1;color:#3A352F;font-size:12.5px"><span class="material-symbols-rounded" style="font-size:16px">fence</span>Vallado</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:8px"><span style="font:500 11.5px 'JetBrains Mono',monospace;color:#57514A">ETIQUETA DESTACADA (SIN ICONO)</span><div style="display:flex;gap:6px"><span style="display:flex;align-items:center;gap:6px;height:32px;padding:0 12px;border-radius:999px;background:#F7F4EE;border:1px solid #E4DDD2;font-size:13.5px;font-weight:600">Tranquilo<strong style="color:#57514A;font-size:12.5px">23</strong></span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="categorias" style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid #1F1D1A;padding-bottom:12px;flex-wrap:wrap"><span style="font:600 13px 'JetBrains Mono',monospace;color:#57514A">06</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:32px;letter-spacing:-0.025em">Categorías y subcategorías</h2><span style="font-size:14px;color:#57514A">El color de familia solo aparece en pines, insignias y la cabecera de la ficha.</span></div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px">
+        <sc-for list="{{ cats }}" as="c" hint-placeholder-count="4">
+          <div style="display:flex;flex-direction:column;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px;overflow:hidden">
+            <div style="display:flex;align-items:center;gap:14px;padding:18px;background:{{ c.tint }}">
+              <span style="position:relative;width:40px;height:48px;flex:none">
+                <span style="position:absolute;left:0;top:0;width:40px;height:40px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:{{ c.color }};box-shadow:0 2px 6px rgba(31,29,26,0.25)"></span>
+                <span class="material-symbols-rounded" style="position:absolute;left:0;top:0;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:22px;color:#fff">{{ c.icon }}</span>
+              </span>
+              <div style="display:flex;flex-direction:column;gap:2px;min-width:0">
+                <span style="font-weight:700;font-size:16.5px;color:{{ c.ink }}">{{ c.name }}</span>
+                <span style="font:500 11.5px 'JetBrains Mono',monospace;color:#3A352F">{{ c.icon }} · {{ c.color }}</span>
+              </div>
+            </div>
+            <div style="display:flex;flex-direction:column;padding:6px 18px 12px">
+              <sc-for list="{{ c.subs }}" as="s" hint-placeholder-count="3">
+                <div style="display:flex;align-items:center;gap:12px;padding:10px 0;border-top:1px solid #EFEAE1">
+                  <span class="material-symbols-rounded" style="font-size:22px;color:{{ c.ink }}">{{ s.icon }}</span>
+                  <span style="flex:1;font-weight:600;font-size:14.5px">{{ s.label }}</span>
+                  <span style="font:500 11.5px 'JetBrains Mono',monospace;color:#57514A">{{ s.icon }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <h3 style="margin:0;font-size:17px;font-weight:700">Escenarios <span style="font-weight:500;font-size:14px;color:#57514A">· atajos de edad + atributos, no categorías</span></h3>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px">
+          <sc-for list="{{ scenarios }}" as="s" hint-placeholder-count="3">
+            <div style="display:flex;align-items:center;gap:14px;padding:14px 16px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:16px">
+              <span style="width:40px;height:40px;flex:none;border-radius:12px;background:{{ s.bg }};color:{{ s.fg }};display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:22px">{{ s.icon }}</span></span>
+              <div style="display:flex;flex-direction:column;gap:2px;min-width:0"><span style="font-weight:700;font-size:15px">{{ s.label }}</span><span style="font-size:12.5px;color:#57514A">{{ s.rule }}</span></div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const W = '#fff', K = '#1F1D1A';
+const COLORS = [
+  { title: 'Marca', note: 'Acción principal y selección', items: [
+    ['Pino', '#2E5A4C', 'Botones, filtros activos, enlaces', W],
+    ['Pino oscuro', '#234539', 'Hover, texto «Sí»', W],
+    ['Pino claro', '#E2ECE6', 'Chip coincidente, selección suave', '#234539'],
+    ['Ámbar', '#C98A1B', 'Solo estrellas de valoración', W]
+  ]},
+  { title: 'Neutros cálidos', note: 'Papel y tinta; el texto nunca baja de #57514A', items: [
+    ['Tinta', '#1F1D1A', 'Texto principal, botón oscuro', W],
+    ['Tinta 2', '#3A352F', 'Texto secundario fuerte', W],
+    ['Tinta 3', '#57514A', 'Texto secundario, metadatos', W],
+    ['Tinta 4', '#756D63', 'Placeholders, iconos inactivos', W],
+    ['Borde fuerte', '#C4BAAA', 'Borde punteado «Sin datos»', K],
+    ['Borde campo', '#D3CABC', 'Inputs, chips', K],
+    ['Borde', '#E4DDD2', 'Tarjetas, divisores', K],
+    ['Superficie 2', '#EFEAE1', 'Chips neutros, segmentados', K],
+    ['Fondo', '#F7F4EE', 'Fondo de página', K],
+    ['Superficie', '#FFFEFB', 'Tarjetas, paneles', K]
+  ]},
+  { title: 'Estados de atributo', note: 'Siempre acompañados de icono y texto', items: [
+    ['Sí', '#234539', 'icono check', W],
+    ['Parcial', '#6B5A24', 'icono contrast', W],
+    ['No', '#8E4529', 'icono close · también error', W],
+    ['Sin datos', '#57514A', 'icono help · borde punteado', W]
+  ]},
+  { title: 'Categorías', note: 'Color de pin / texto sobre tinte', items: [
+    ['Juego y ocio', '#B45F3E', 'texto #9A4E31 · tinte #F6E6DD', W],
+    ['Naturaleza', '#3E7656', 'texto #2F6246 · tinte #E1EEE5', W],
+    ['Cultura', '#4C6A98', 'texto #3D5A86 · tinte #E3E9F3', W],
+    ['Otros planes', '#8A7530', 'texto #6B5A24 · tinte #F1EBD9', W]
+  ]}
+];
+const BG = "'Bricolage Grotesque',sans-serif", FT = "'Figtree',sans-serif";
+const TYPE = [
+  ['display', BG, 600, '56px', '-0.04em', 1, 'Lugares para ir con niños', 'Bricolage 600 · 56/56'],
+  ['h1', BG, 600, '40px', '-0.035em', 1.05, 'Parc de la Ciutadella', 'Bricolage 600 · 40/42'],
+  ['h2', BG, 600, '28px', '-0.02em', 1.1, 'Cerca de ti', 'Bricolage 600 · 28/31'],
+  ['h3', BG, 600, '22px', '-0.015em', 1.2, 'Atributos familiares', 'Bricolage 600 · 22/26'],
+  ['title', FT, 700, '17px', '0', 1.25, 'Ludoteca El Drac', 'Figtree 700 · 17/21'],
+  ['body-lg', FT, 400, '17px', '0', 1.55, 'Un parque amplio con caminos llanos para el carrito.', 'Figtree 400 · 17/26'],
+  ['body', FT, 400, '15px', '0', 1.5, 'Cuenta lo que le sirva a otra familia.', 'Figtree 400 · 15/22'],
+  ['label', FT, 600, '14px', '0', 1.3, 'Quitar filtro · Ver 31', 'Figtree 600 · 14/18'],
+  ['caption', FT, 500, '12.5px', '0', 1.4, '800 m · Gratis · 132 opiniones', 'Figtree 500 · 12.5/17'],
+  ['mono', "'JetBrains Mono',monospace", 500, '12px', '0.02em', 1.4, 'DATO CONFIRMADO · 12 FAMILIAS', 'JetBrains Mono 500 · 12'],
+];
+const SPACING = [['space-1', 4, 'Icono ↔ texto en insignias'], ['space-2', 8, 'Gap entre chips'], ['space-3', 12, 'Gap en listas compactas'], ['space-4', 16, 'Padding de tarjeta, margen móvil'], ['space-5', 20, 'Gap entre tarjetas'], ['space-6', 24, 'Padding de panel, margen tablet'], ['space-8', 32, 'Separación entre bloques'], ['space-10', 40, 'Margen de página desktop'], ['space-12', 48, 'Separación entre secciones'], ['space-16', 64, 'Separación mayor']];
+const RADII = [['radius-xs', 6, 'Etiquetas mono, badges'], ['radius-sm', 8, 'Chips de atributo en tarjeta'], ['radius-md', 12, 'Botones, inputs, controles de mapa'], ['radius-lg', 16, 'Tarjetas de atributo y de lugar'], ['radius-xl', 20, 'Paneles y secciones de ficha'], ['radius-2xl', 24, 'Bottom sheet, mapa en inicio'], ['radius-full', 999, 'Chips de filtro, pills, avatar']];
+const ST = [
+  { st: 'Sí', stIcon: 'check', stColor: '#234539', bg: '#FFFEFB', border: '1px solid #E4DDD2', iconColor: '#1F1D1A', labelColor: '#1F1D1A', spec: 'superficie · borde sólido', rule: 'Confirmado por familias o por la fuente.' },
+  { st: 'Parcial', stIcon: 'contrast', stColor: '#6B5A24', bg: '#FFFEFB', border: '1px solid #E4DDD2', iconColor: '#1F1D1A', labelColor: '#1F1D1A', spec: 'superficie · borde sólido', rule: 'Existe en parte del lugar o con limitaciones.' },
+  { st: 'No', stIcon: 'close', stColor: '#8E4529', bg: '#F7F4EE', border: '1px solid #E4DDD2', iconColor: '#756D63', labelColor: '#57514A', spec: 'fondo hundido · tinta atenuada', rule: 'Confirmado que no existe.' },
+  { st: 'Sin datos', stIcon: 'help', stColor: '#57514A', bg: 'transparent', border: '1.5px dashed #C4BAAA', iconColor: '#756D63', labelColor: '#57514A', spec: 'transparente · borde punteado', rule: 'Nadie lo ha indicado aún. Invita a aportar.' }
+];
+const ATTRS = [
+  ['child_care', 'Edad recomendada', 'Edad'], ['stroller', 'Carrito', 'Acceso'], ['accessible', 'Accesible PMR', 'Acceso'], ['local_parking', 'Parking', 'Acceso'],
+  ['fence', 'Vallado', 'Seguridad'], ['park', 'Sombra', 'Confort'], ['chair', 'Bancos', 'Confort'], ['water_drop', 'Fuente', 'Servicios'],
+  ['wc', 'WC', 'Servicios'], ['baby_changing_station', 'Cambiador', 'Servicios'], ['deck', 'Picnic', 'Servicios'], ['restaurant', 'Comida cerca', 'Servicios']
+];
+const CATS = [
+  { name: 'Juego y ocio', icon: 'extension', color: '#B45F3E', ink: '#9A4E31', tint: '#F6E6DD', subs: [['toys', 'Parques infantiles'], ['interests', 'Ludotecas'], ['attractions', 'Centros de ocio']] },
+  { name: 'Naturaleza y aire libre', icon: 'forest', color: '#3E7656', ink: '#2F6246', tint: '#E1EEE5', subs: [['nature_people', 'Parques y áreas verdes'], ['nature', 'Bosques'], ['beach_access', 'Lagos y playas'], ['outdoor_grill', 'Zonas de picnic']] },
+  { name: 'Cultura y aprendizaje', icon: 'museum', color: '#4C6A98', ink: '#3D5A86', tint: '#E3E9F3', subs: [['local_library', 'Bibliotecas'], ['account_balance', 'Museos'], ['theater_comedy', 'Centros culturales']] },
+  { name: 'Otros planes', icon: 'family_restroom', color: '#8A7530', ink: '#6B5A24', tint: '#F1EBD9', subs: [['diversity_1', 'Espacios familiares'], ['child_friendly', 'Casales infantiles'], ['location_city', 'Equipamientos útiles']] }
+];
+const SCEN = [
+  ['crib', 'Con bebé', '0–3 años · Carrito · Cambiador · Sombra', '#E2ECE6', '#234539'],
+  ['sports_handball', 'Para jugar', '4–7 años · Vallado · Fuente', '#F6E6DD', '#8E4529'],
+  ['hiking', 'Escapada', 'Día completo · Naturaleza · Parking · Picnic', '#F1EBD9', '#6B5A24']
+];
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      colorGroups: COLORS.map(g => ({ ...g, items: g.items.map(([name, hex, use, on]) => ({ name, hex, use, on, sample: 'Aa' })) })),
+      typeScale: TYPE.map(([token, family, weight, size, ls, lh, sample, spec]) => ({ token, family, weight, size, ls, lh, sample, spec })),
+      spacing: SPACING.map(([token, n, use]) => ({ token, px: n + ' px', w: n * 2 + 'px', use })),
+      radii: RADII.map(([token, n, use]) => ({ token, px: n === 999 ? 'full' : n + ' px', css: n + 'px', use })),
+      states: ST,
+      attrs: ATTRS.map(([icon, label, group]) => ({ icon, label, group })),
+      cats: CATS.map(c => ({ ...c, subs: c.subs.map(([icon, label]) => ({ icon, label })) })),
+      scenarios: SCEN.map(([icon, label, rule, bg, fg]) => ({ icon, label, rule, bg, fg }))
+    };
+  }
+}
+</script>
+</body>
+</html>

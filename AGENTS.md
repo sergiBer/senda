@@ -34,6 +34,7 @@ Al terminar una sesión de trabajo relevante, añade una entrada en `docs/ia/reg
 ```
 frontend/   SPA React + Vite + TypeScript + OpenLayers   → ver frontend/AGENTS.md
 backend/    Django + GeoDjango + DRF + PostGIS            → ver backend/AGENTS.md
+design/     referencia visual de Claude Design (no es código) → ver design/README.md
 docs/       constitución, registro de decisiones, ADR, metodología y registro de uso de IA
 specs/      NNN-nombre/{spec,plan,tasks}.md y _plantillas/
 ```

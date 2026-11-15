@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;display=block">
+<style>body{margin:0}</style>
+</helmet>
+<header style="height:64px;display:flex;align-items:center;gap:28px;padding:0 24px;background:#FFFEFB;border-bottom:1px solid #E4DDD2;font-family:'Figtree',sans-serif;color:#1F1D1A;box-sizing:border-box">
+  <div style="display:flex;align-items:center;gap:10px;flex:none">
+    <div style="width:30px;height:30px;border-radius:9px;background:#2E5A4C;position:relative;overflow:hidden">
+      <div style="position:absolute;width:10px;height:10px;border-radius:50%;background:#F2C98A;top:6px;right:6px"></div>
+      <div style="position:absolute;left:-6px;right:-6px;bottom:-12px;height:22px;border-radius:50%;background:#7FA88F"></div>
+    </div>
+    <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:23px;letter-spacing:-0.03em">senda</span>
+  </div>
+  <sc-if value="{{ showSearch }}" hint-placeholder-val="{{ true }}">
+    <div style="display:flex;align-items:center;gap:10px;height:44px;width:480px;padding:0 6px 0 14px;border:1px solid #D3CABC;border-radius:12px;background:#fff;box-sizing:border-box">
+      <span class="material-symbols-rounded" style="font-size:21px;color:#57514A">search</span>
+      <span style="flex:1;font-size:15px;color:#1F1D1A">{{ searchText }}</span>
+      <div style="width:1px;height:24px;background:#E4DDD2"></div>
+      <button style="display:flex;align-items:center;gap:6px;height:34px;padding:0 10px;border:0;border-radius:8px;background:transparent;color:#2E5A4C;font:600 14px 'Figtree',sans-serif;cursor:pointer"><span class="material-symbols-rounded" style="font-size:19px">my_location</span>Cerca de mí</button>
+    </div>
+  </sc-if>
+  <div style="flex:1"></div>
+  <nav style="display:flex;align-items:center;gap:6px">
+    <a href="#" style="display:flex;align-items:center;gap:6px;height:40px;padding:0 12px;border-radius:10px;color:#1F1D1A;text-decoration:none;font-weight:600;font-size:15px"><span class="material-symbols-rounded" style="font-size:20px">map</span>Explorar</a>
+    <a href="#" style="display:flex;align-items:center;gap:6px;height:40px;padding:0 14px;border-radius:10px;border:1px solid #D3CABC;color:#1F1D1A;text-decoration:none;font-weight:600;font-size:15px"><span class="material-symbols-rounded" style="font-size:20px">add_location_alt</span>Proponer lugar</a>
+  </nav>
+  <div role="group" aria-label="Idioma" style="display:flex;gap:2px;padding:3px;background:#EFEAE1;border-radius:10px">
+    <button aria-pressed="true" style="height:32px;padding:0 9px;border:0;border-radius:7px;background:#fff;box-shadow:0 1px 3px rgba(31,29,26,0.12);font:700 13px 'Figtree',sans-serif;color:#1F1D1A;cursor:pointer">ES</button>
+    <button aria-pressed="false" style="height:32px;padding:0 9px;border:0;border-radius:7px;background:transparent;font:600 13px 'Figtree',sans-serif;color:#57514A;cursor:pointer">CA</button>
+    <button aria-pressed="false" style="height:32px;padding:0 9px;border:0;border-radius:7px;background:transparent;font:600 13px 'Figtree',sans-serif;color:#57514A;cursor:pointer">EN</button>
+  </div>
+  <sc-if value="{{ loggedIn }}" hint-placeholder-val="{{ false }}">
+    <div style="display:flex;align-items:center;gap:8px">
+      <div style="width:38px;height:38px;border-radius:50%;background:#E2ECE6;color:#234539;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center">LM</div>
+    </div>
+  </sc-if>
+  <sc-if value="{{ loggedOut }}" hint-placeholder-val="{{ true }}">
+    <button style="height:40px;padding:0 18px;border:0;border-radius:10px;background:#1F1D1A;color:#fff;font:600 15px 'Figtree',sans-serif;cursor:pointer">Entrar</button>
+  </sc-if>
+</header>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1440,&quot;height&quot;:64},&quot;hideSearch&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;loggedIn&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:false,&quot;tsType&quot;:&quot;boolean&quot;},&quot;searchValue&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const p = this.props;
+    return { showSearch: !p.hideSearch, searchText: p.searchValue || 'Busca un lugar, barrio o municipio', loggedIn: !!p.loggedIn, loggedOut: !p.loggedIn };
+  }
+}
+</script>
+</body>
+</html>

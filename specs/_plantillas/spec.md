@@ -19,6 +19,13 @@
 
 - Como <rol>, quiero <acción> para <beneficio>.
 
+## Diseño
+
+Pantallas de `design/` que afectan a esta funcionalidad (ver `design/README.md`). Solo estas se leen al implementar.
+
+- `design/<Pantalla>.dc.html`: <qué parte aplica>
+- Diferencias con el diseño que manda el registro: <o "ninguna">
+
 ## Acceptance criteria
 
 Cada criterio se convierte en al menos un test (HAR-06). Numéralos para poder citarlos desde `tasks.md` y desde los tests (`# AC-01`).

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;display=block">
+<style>body{margin:0;background:#1F1D1A}a{color:#2E5A4C}a:hover{color:#234539}</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%">
+
+  <section data-label="Portada" data-screen-label="01" data-speaker-notes="Presentar el proyecto: plataforma colaborativa para descubrir lugares para ir con niños. Senda es un nombre provisional." style="background:#2E5A4C;color:#FFFEFB;font-family:'Figtree',sans-serif;display:flex;flex-direction:column;justify-content:space-between;padding:110px 120px;box-sizing:border-box">
+    <div style="display:flex;align-items:center;gap:18px">
+      <div style="width:64px;height:64px;border-radius:18px;background:#FFFEFB;position:relative;overflow:hidden"><div style="position:absolute;width:20px;height:20px;border-radius:50%;background:#F2C98A;top:12px;right:12px"></div><div style="position:absolute;left:-12px;right:-12px;bottom:-26px;height:46px;border-radius:50%;background:#7FA88F"></div></div>
+      <span style="font:500 26px 'JetBrains Mono',monospace;color:#CFE0D6">TFM · Propuesta UX-UI · v1</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:220px;letter-spacing:-0.05em;line-height:0.85">senda</h1>
+      <p style="margin:0;font-size:44px;line-height:1.3;max-width:1300px;color:#E6EFEA;text-wrap:pretty">Descubrir lugares que encajan de verdad con tu familia, con información práctica aportada por otras familias.</p>
+    </div>
+    <div style="display:flex;justify-content:space-between;font-size:26px;color:#CFE0D6"><span>Nombre provisional</span><span>Octubre 2026</span></div>
+  </section>
+
+  <section data-label="Interpretación" data-screen-label="02" data-speaker-notes="La clave: no es un directorio sino una herramienta de decisión. Los atributos familiares son el elemento diferencial." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:110px 120px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:100px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">01 · Interpretación</div>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:96px;letter-spacing:-0.04em;line-height:0.98">Una herramienta de decisión, no un directorio</h2>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:36px;font-size:32px;line-height:1.5;color:#3A352F">
+      <p style="margin:0">Cada pantalla responde a una pregunta: <strong style="color:#1F1D1A">«¿me sirve ir aquí con mis hijos?»</strong></p>
+      <p style="margin:0">La categoría dice <em>qué es</em> un lugar. La edad y los atributos dicen <em>si encaja</em>, por eso son lo más visible en tarjetas, mapa y ficha.</p>
+      <p style="margin:0">Los datos públicos aportan los lugares desde el primer día; los atributos familiares los aportan las familias. Siempre distinguimos dato de origen, dato confirmado y opinión.</p>
+    </div>
+  </section>
+
+  <section data-label="Principios UX" data-screen-label="03" data-speaker-notes="Seis principios que guían todas las pantallas." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:100px 120px;box-sizing:border-box;display:flex;flex-direction:column;gap:56px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">02 · Principios UX</div>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:80px;letter-spacing:-0.04em;line-height:1">Seis reglas para todas las pantallas</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;flex:1">
+      <div style="background:#FFFEFB;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;color:#2E5A4C;line-height:1">1</span><strong style="font-size:34px">El mapa, siempre visible</strong><span style="font-size:26px;line-height:1.45;color:#3A352F">Filtros y lista conviven con él; nunca lo tapan del todo.</span></div>
+      <div style="background:#FFFEFB;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;color:#2E5A4C;line-height:1">2</span><strong style="font-size:34px">Por qué encaja, a la vista</strong><span style="font-size:26px;line-height:1.45;color:#3A352F">Cada resultado resalta los atributos que coinciden con tus filtros.</span></div>
+      <div style="background:#FFFEFB;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;color:#2E5A4C;line-height:1">3</span><strong style="font-size:34px">Filtros de un toque</strong><span style="font-size:26px;line-height:1.45;color:#3A352F">Los más usados como chips; el resto en un panel con recuento previo.</span></div>
+      <div style="background:#FFFEFB;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;color:#2E5A4C;line-height:1">4</span><strong style="font-size:34px">Decidir, luego profundizar</strong><span style="font-size:26px;line-height:1.45;color:#3A352F">Valoración → edades → atributos → descripción → opiniones.</span></div>
+      <div style="background:#FFFEFB;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;color:#2E5A4C;line-height:1">5</span><strong style="font-size:34px">Honestidad del dato</strong><span style="font-size:26px;line-height:1.45;color:#3A352F">Sí · Parcial · No · Sin datos, con icono y texto, nunca solo color.</span></div>
+      <div style="background:#FFFEFB;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:16px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;color:#2E5A4C;line-height:1">6</span><strong style="font-size:34px">Cuenta solo para aportar</strong><span style="font-size:26px;line-height:1.45;color:#3A352F">Explorar y consultar fichas no requiere registro.</span></div>
+    </div>
+  </section>
+
+  <section data-label="Navegación" data-screen-label="04" data-speaker-notes="Estructura plana: el mapa es el centro. Las acciones que requieren cuenta piden el login en contexto." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:100px 120px;box-sizing:border-box;display:grid;grid-template-columns:620px 1fr;gap:100px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">03 · Navegación</div>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:80px;letter-spacing:-0.04em;line-height:1">Plana, con el mapa en el centro</h2>
+      <p style="margin:0;font-size:28px;line-height:1.5;color:#3A352F">Sin barra de pestañas en móvil: el mapa ocupa toda la pantalla. Cada lugar y cada combinación de filtros tiene URL propia.</p>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:22px;font-size:30px;font-weight:600">
+      <div style="display:flex;align-items:center;gap:18px"><span style="padding:20px 28px;border-radius:18px;background:#EFEAE1">Inicio</span><span class="material-symbols-rounded" style="font-size:40px;color:#756D63">arrow_forward</span><span style="padding:20px 28px;border-radius:18px;background:#2E5A4C;color:#fff">Explorar · mapa + lista</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding-left:200px"><span class="material-symbols-rounded" style="font-size:40px;color:#756D63">subdirectory_arrow_right</span><span style="padding:20px 28px;border-radius:18px;background:#EFEAE1">Filtros</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding-left:200px"><span class="material-symbols-rounded" style="font-size:40px;color:#756D63">subdirectory_arrow_right</span><span style="padding:20px 28px;border-radius:18px;background:#EFEAE1">Ficha de lugar</span></div>
+      <div style="display:flex;align-items:center;gap:18px;padding-left:400px"><span class="material-symbols-rounded" style="font-size:40px;color:#756D63">subdirectory_arrow_right</span><span style="padding:18px 26px;border-radius:18px;border:3px dashed #C4BAAA">Valorar · Opinar</span></div>
+      <div style="display:flex;align-items:center;gap:18px;margin-top:20px"><span style="padding:18px 26px;border-radius:18px;border:3px dashed #C4BAAA">Proponer lugar</span><span style="padding:20px 28px;border-radius:18px;background:#EFEAE1">Entrar / Crear cuenta</span></div>
+      <div style="display:flex;align-items:center;gap:12px;margin-top:16px;font-size:24px;font-weight:500;color:#57514A"><span style="width:40px;height:26px;border-radius:8px;border:3px dashed #C4BAAA"></span>Requiere cuenta · se pide al intentar la acción</div>
+    </div>
+  </section>
+
+  <section data-label="Marca · nombre y paleta" data-screen-label="05" data-speaker-notes="Identidad abierta: sistema mínimo para validar. Nombre provisional sin ligar a ningún territorio." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:100px 120px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:80px">
+    <div style="display:flex;flex-direction:column;gap:32px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">04 · Dirección de marca</div>
+      <div style="display:flex;align-items:center;gap:24px">
+        <div style="width:96px;height:96px;border-radius:26px;background:#2E5A4C;position:relative;overflow:hidden"><div style="position:absolute;width:30px;height:30px;border-radius:50%;background:#F2C98A;top:18px;right:18px"></div><div style="position:absolute;left:-16px;right:-16px;bottom:-38px;height:68px;border-radius:50%;background:#7FA88F"></div></div>
+        <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:110px;letter-spacing:-0.04em;line-height:1">senda</span>
+      </div>
+      <p style="margin:0;font-size:28px;line-height:1.5;color:#3A352F">Un camino que se recorre en familia. Corto, fácil de pronunciar en todas las lenguas de España y sin atarse a ningún territorio.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;font-size:24px;line-height:1.45">
+        <div style="padding:24px;border-radius:20px;background:#E2ECE6;color:#234539"><strong style="display:block;margin-bottom:8px">Así sí</strong>«Caminos llanos, se llega bien con carrito.»</div>
+        <div style="padding:24px;border-radius:20px;background:#F6E6DD;color:#7A3B22"><strong style="display:block;margin-bottom:8px">Así no</strong>«¡¡El plan más mágico para tus peques!!»</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:28px;padding-top:70px">
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px">
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;border-radius:20px;background:#2E5A4C"></div><span style="font-size:24px"><strong>Pino</strong> · primario</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;border-radius:20px;background:#1F1D1A"></div><span style="font-size:24px"><strong>Tinta</strong> · texto</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:120px;border-radius:20px;background:#FFFEFB;border:2px solid #E4DDD2;box-sizing:border-box"></div><span style="font-size:24px"><strong>Papel</strong> · fondo</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:80px;border-radius:16px;background:#E2ECE6"></div><span style="font-size:24px"><strong>Salvia</strong> · coincide</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:80px;border-radius:16px;background:#EFEAE1"></div><span style="font-size:24px"><strong>Arena</strong> · neutro</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:80px;border-radius:16px;background:#C98A1B"></div><span style="font-size:24px"><strong>Ocre</strong> · valoración</span></div>
+      </div>
+      <div style="font-size:24px;font-weight:600;color:#3A352F;margin-top:8px">Familias de lugar · color + icono propio</div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 8px;border-radius:20px;background:#F6E6DD"><span style="width:60px;height:60px;border-radius:50%;background:#B45F3E;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">extension</span></span><span style="font-size:24px;font-weight:600">Juego</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 8px;border-radius:20px;background:#E1EEE5"><span style="width:60px;height:60px;border-radius:50%;background:#3E7656;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">forest</span></span><span style="font-size:24px;font-weight:600">Naturaleza</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 8px;border-radius:20px;background:#E3E9F3"><span style="width:60px;height:60px;border-radius:50%;background:#4C6A98;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">museum</span></span><span style="font-size:24px;font-weight:600">Cultura</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:22px 8px;border-radius:20px;background:#F1EBD9"><span style="width:60px;height:60px;border-radius:50%;background:#8A7535;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">family_restroom</span></span><span style="font-size:24px;font-weight:600">Otros</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Tipografía e iconos" data-screen-label="06" data-speaker-notes="Tipografía con carácter en titulares y muy legible en interfaz. Iconos de trazo redondeado, sin relleno." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:100px 120px;box-sizing:border-box;display:grid;grid-template-columns:1fr 1fr;gap:80px">
+    <div style="display:flex;flex-direction:column;gap:40px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">05 · Tipografía e iconografía</div>
+      <div style="display:flex;flex-direction:column;gap:12px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:96px;letter-spacing:-0.04em;line-height:1">Planes que encajan</span><span style="font-size:24px;color:#57514A">Bricolage Grotesque 600 · titulares y cifras</span></div>
+      <div style="display:flex;flex-direction:column;gap:12px"><span style="font-size:34px;line-height:1.5">Caminos llanos, mucha sombra y una zona de juegos vallada para los más pequeños.</span><span style="font-size:24px;color:#57514A">Figtree 400–700 · interfaz y lectura</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:28px;padding-top:70px">
+      <div style="font-size:24px;font-weight:600;color:#3A352F">Material Symbols Rounded · 400 · sin relleno</div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px">
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">stroller</span>Carrito</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">park</span>Sombra</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">wc</span>WC</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">baby_changing_station</span>Cambiador</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">fence</span>Vallado</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">deck</span>Picnic</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">water_drop</span>Fuente</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">local_parking</span>Parking</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">accessible</span>PMR</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">chair</span>Bancos</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">restaurant</span>Comida</span>
+        <span style="display:flex;flex-direction:column;align-items:center;gap:8px;padding:20px 0;border-radius:18px;background:#FFFEFB;font-size:24px"><span class="material-symbols-rounded" style="font-size:52px">child_care</span>Edad</span>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="Taxonomía y estados" data-screen-label="07" data-speaker-notes="Cuatro familias de lugar. Los escenarios no son categorías: activan combinaciones de edad y atributos. Sin datos es una invitación a aportar." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:100px 120px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">06 · Taxonomía y atributos</div>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:72px;letter-spacing:-0.04em;line-height:1">Qué es un lugar, y si encaja</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px;font-size:26px;line-height:1.6;color:#3A352F">
+      <div><div style="font-weight:700;color:#9A4E31;margin-bottom:8px;font-size:28px">Juego y ocio</div>Parques infantiles<br>Ludotecas<br>Centros de ocio</div>
+      <div><div style="font-weight:700;color:#2F6246;margin-bottom:8px;font-size:28px">Naturaleza</div>Parques y áreas verdes<br>Bosques<br>Lagos y playas<br>Zonas de picnic</div>
+      <div><div style="font-weight:700;color:#3D5A86;margin-bottom:8px;font-size:28px">Cultura</div>Bibliotecas<br>Museos<br>Centros culturales</div>
+      <div><div style="font-weight:700;color:#6B5A24;margin-bottom:8px;font-size:28px">Otros planes</div>Espacios familiares<br>Casales infantiles</div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px">
+      <div style="padding:26px;border-radius:22px;background:#FFFEFB;border:2px solid #E4DDD2;display:flex;flex-direction:column;gap:10px"><span class="material-symbols-rounded" style="font-size:44px">park</span><strong style="font-size:28px">Sombra</strong><span style="display:flex;align-items:center;gap:6px;font-size:26px;font-weight:700;color:#234539"><span class="material-symbols-rounded" style="font-size:30px">check</span>Sí</span></div>
+      <div style="padding:26px;border-radius:22px;background:#FFFEFB;border:2px solid #E4DDD2;display:flex;flex-direction:column;gap:10px"><span class="material-symbols-rounded" style="font-size:44px">fence</span><strong style="font-size:28px">Vallado</strong><span style="display:flex;align-items:center;gap:6px;font-size:26px;font-weight:700;color:#6B5A24"><span class="material-symbols-rounded" style="font-size:30px">contrast</span>Parcial</span></div>
+      <div style="padding:26px;border-radius:22px;background:#EFEAE1;border:2px solid #E4DDD2;display:flex;flex-direction:column;gap:10px"><span class="material-symbols-rounded" style="font-size:44px;color:#756D63">local_parking</span><strong style="font-size:28px;color:#57514A">Parking</strong><span style="display:flex;align-items:center;gap:6px;font-size:26px;font-weight:700;color:#8E4529"><span class="material-symbols-rounded" style="font-size:30px">close</span>No</span></div>
+      <div style="padding:26px;border-radius:22px;border:3px dashed #C4BAAA;display:flex;flex-direction:column;gap:10px"><span class="material-symbols-rounded" style="font-size:44px;color:#756D63">baby_changing_station</span><strong style="font-size:28px;color:#57514A">Cambiador</strong><span style="display:flex;align-items:center;gap:6px;font-size:26px;font-weight:700;color:#57514A"><span class="material-symbols-rounded" style="font-size:30px">help</span>Sin datos</span></div>
+    </div>
+  </section>
+
+  <section data-label="Sección · Escritorio" data-screen-label="08" data-speaker-notes="Pasamos a las pantallas de escritorio." style="background:#1F1D1A;color:#FFFEFB;font-family:'Figtree',sans-serif;padding:110px 120px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-end;gap:24px">
+    <div style="font:500 26px 'JetBrains Mono',monospace;color:#C4BAAA">Pantallas · 1440 px</div>
+    <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:160px;letter-spacing:-0.05em;line-height:0.9">Escritorio</h2>
+  </section>
+
+  <section data-label="Inicio" data-screen-label="09" data-speaker-notes="Sin landing de marketing: buscador, ubicación, escenarios y mapa vivo en el primer pantallazo." style="background:#E9E4DA;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:80px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 1325px;gap:60px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px"><div style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">Pantalla 01</div><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.03em;line-height:1.02">Inicio y descubrimiento</h2><p style="margin:0;font-size:26px;line-height:1.5;color:#3A352F">Buscar es la acción principal. Los escenarios activan combinaciones de edad y atributos.</p></div>
+    <div data-om-raster="" style="width:1325px;height:828px;overflow:hidden;border-radius:16px;box-shadow:0 30px 60px rgba(31,29,26,0.18);position:relative"><div style="position:absolute;left:0;top:0;width:1440px;transform:scale(0.92);transform-origin:0 0"><dc-import name="Home" hint-size="1440px,1240px"></dc-import></div></div>
+  </section>
+
+  <section data-label="Mapa + resultados" data-screen-label="10" data-speaker-notes="Lista sincronizada con el área visible. Los chips verdes muestran los atributos que coinciden con los filtros." style="background:#E9E4DA;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:80px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 1325px;gap:60px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px"><div style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">Pantalla 02</div><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.03em;line-height:1.02">Mapa + resultados</h2><p style="margin:0;font-size:26px;line-height:1.5;color:#3A352F">La lista sigue al mapa. En verde, lo que coincide con tus filtros.</p></div>
+    <div data-om-raster="" style="width:1325px;height:828px;overflow:hidden;border-radius:16px;box-shadow:0 30px 60px rgba(31,29,26,0.18);position:relative"><div style="position:absolute;left:0;top:0;width:1440px;transform:scale(0.92);transform-origin:0 0"><dc-import name="MapExplore" mode="results" hint-size="1440px,900px"></dc-import></div></div>
+  </section>
+
+  <section data-label="Filtros abiertos" data-screen-label="11" data-speaker-notes="El panel sustituye a la lista y el mapa se actualiza en vivo como vista previa." style="background:#E9E4DA;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:80px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 1325px;gap:60px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px"><div style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">Pantalla 03</div><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.03em;line-height:1.02">Filtros abiertos</h2><p style="margin:0;font-size:26px;line-height:1.5;color:#3A352F">El mapa hace de vista previa; el botón anticipa cuántos lugares quedan.</p></div>
+    <div data-om-raster="" style="width:1325px;height:828px;overflow:hidden;border-radius:16px;box-shadow:0 30px 60px rgba(31,29,26,0.18);position:relative"><div style="position:absolute;left:0;top:0;width:1440px;transform:scale(0.92);transform-origin:0 0"><dc-import name="MapExplore" mode="filters" hint-size="1440px,900px"></dc-import></div></div>
+  </section>
+
+  <section data-label="Ficha de lugar" data-screen-label="12" data-speaker-notes="El bloque ¿Encaja con tu familia? va antes que la descripción. La procedencia del dato es visible pero discreta." style="background:#E9E4DA;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:80px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 1325px;gap:60px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px"><div style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">Pantalla 04</div><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.03em;line-height:1.02">Ficha de lugar</h2><p style="margin:0;font-size:26px;line-height:1.5;color:#3A352F">«¿Encaja con tu familia?» antes que la descripción: edades y atributos con estado.</p></div>
+    <div data-om-raster="" style="width:1325px;height:828px;overflow:hidden;border-radius:16px;box-shadow:0 30px 60px rgba(31,29,26,0.18);position:relative"><div style="position:absolute;left:0;top:0;width:1440px;transform:translateY(-280px) scale(0.92);transform-origin:0 0"><dc-import name="PlaceDetail" hint-size="1440px,2000px"></dc-import></div></div>
+  </section>
+
+  <section data-label="Proponer lugar" data-screen-label="13" data-speaker-notes="Detección de duplicados al situar el punto, atributos con No sé y revisión antes de publicar." style="background:#E9E4DA;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:80px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 1325px;gap:60px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px"><div style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">Pantalla 05</div><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.03em;line-height:1.02">Proponer lugar</h2><p style="margin:0;font-size:26px;line-height:1.5;color:#3A352F">Avisa de duplicados, admite «No sé» y se revisa antes de publicar.</p></div>
+    <div data-om-raster="" style="width:1325px;height:828px;overflow:hidden;border-radius:16px;box-shadow:0 30px 60px rgba(31,29,26,0.18);position:relative"><div style="position:absolute;left:0;top:0;width:1440px;transform:scale(0.92);transform-origin:0 0"><dc-import name="AddPlace" hint-size="1440px,1900px"></dc-import></div></div>
+  </section>
+
+  <section data-label="Login / registro" data-screen-label="14" data-speaker-notes="Aparece solo al intentar aportar y recuerda qué ibas a hacer." style="background:#E9E4DA;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:80px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) 1325px;gap:60px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px"><div style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">Pantalla 06</div><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.03em;line-height:1.02">Registro en contexto</h2><p style="margin:0;font-size:26px;line-height:1.5;color:#3A352F">Solo al aportar, recordando la acción pendiente.</p></div>
+    <div data-om-raster="" style="width:1325px;height:828px;overflow:hidden;border-radius:16px;box-shadow:0 30px 60px rgba(31,29,26,0.18);position:relative"><div style="position:absolute;left:0;top:0;width:1440px;transform:scale(0.92);transform-origin:0 0"><dc-import name="Auth" hint-size="1440px,900px"></dc-import></div></div>
+  </section>
+
+  <section data-label="Sección · Móvil" data-screen-label="15" data-speaker-notes="Móvil es la prioridad del MVP." style="background:#2E5A4C;color:#FFFEFB;font-family:'Figtree',sans-serif;padding:110px 120px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-end;gap:24px">
+    <div style="font:500 26px 'JetBrains Mono',monospace;color:#CFE0D6">Prioridad del MVP</div>
+    <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:160px;letter-spacing:-0.05em;line-height:0.9">Móvil</h2>
+  </section>
+
+  <section data-label="Móvil · mapa" data-screen-label="16" data-speaker-notes="Bottom sheet con tres alturas. El mapa nunca baja del 40% de la pantalla por defecto. Filtros en hoja modal con recuento previo." style="background:#E9E4DA;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:70px 80px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:60px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px"><div style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">Pantalla 07</div><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.03em;line-height:1.02">Mapa en móvil</h2><p style="margin:0;font-size:26px;line-height:1.5;color:#3A352F">Tarjetas, lista y filtros en una hoja inferior. Objetivos táctiles de 44 px o más.</p></div>
+    <div data-om-raster="" style="display:flex;gap:40px">
+      <div style="width:362px;height:787px;position:relative"><div style="position:absolute;left:0;top:0;transform:scale(0.9);transform-origin:0 0"><dc-import name="MobileMap" state="peek" hint-size="402px,874px"></dc-import></div></div>
+      <div style="width:362px;height:787px;position:relative"><div style="position:absolute;left:0;top:0;transform:scale(0.9);transform-origin:0 0"><dc-import name="MobileMap" state="list" hint-size="402px,874px"></dc-import></div></div>
+      <div style="width:362px;height:787px;position:relative"><div style="position:absolute;left:0;top:0;transform:scale(0.9);transform-origin:0 0"><dc-import name="MobileMap" state="filters" hint-size="402px,874px"></dc-import></div></div>
+    </div>
+  </section>
+
+  <section data-label="Móvil · ficha" data-screen-label="17" data-speaker-notes="Valoración, edades y ocho atributos sin scroll. Acciones fijas al alcance del pulgar." style="background:#E9E4DA;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:70px 80px;box-sizing:border-box;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:60px;align-items:center">
+    <div style="display:flex;flex-direction:column;gap:24px"><div style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">Pantalla 08</div><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:56px;letter-spacing:-0.03em;line-height:1.02">Ficha en móvil</h2><p style="margin:0;font-size:26px;line-height:1.5;color:#3A352F">Lo esencial sin scroll; descripción, ubicación y opiniones después. Acciones fijas al pulgar.</p></div>
+    <div data-om-raster="" style="display:flex;gap:40px">
+      <div style="width:362px;height:787px;position:relative"><div style="position:absolute;left:0;top:0;transform:scale(0.9);transform-origin:0 0"><dc-import name="MobilePlace" state="top" hint-size="402px,874px"></dc-import></div></div>
+      <div style="width:362px;height:787px;position:relative"><div style="position:absolute;left:0;top:0;transform:scale(0.9);transform-origin:0 0"><dc-import name="MobilePlace" state="more" hint-size="402px,874px"></dc-import></div></div>
+    </div>
+  </section>
+
+  <section data-label="Implementación" data-screen-label="18" data-speaker-notes="Notas para frontend: OpenLayers, responsive y accesibilidad. Siguientes pasos." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:100px 120px;box-sizing:border-box;display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">07 · Implementación</div>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:72px;letter-spacing:-0.04em;line-height:1">Notas para el frontend</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;font-size:26px;line-height:1.5;color:#3A352F">
+      <div style="background:#FFFEFB;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:14px"><strong style="font-size:32px;color:#1F1D1A">Mapa · OpenLayers</strong><span>Teselas OSM con estilo cálido. Marcadores en capa vectorial con clustering; el seleccionado como overlay HTML. La lista se recalcula al mover el mapa.</span></div>
+      <div style="background:#FFFEFB;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:14px"><strong style="font-size:32px;color:#1F1D1A">Responsive</strong><span>≥ 1024 px: panel + mapa. 640–1023 px: panel flotante. &lt; 640 px: hoja inferior de 3 alturas. Filtros en la URL para compartir.</span></div>
+      <div style="background:#FFFEFB;border-radius:28px;padding:40px;display:flex;flex-direction:column;gap:14px"><strong style="font-size:32px;color:#1F1D1A">Accesibilidad</strong><span>Texto ≥ 4,5:1. Categoría = color + icono; atributo = icono + texto. Táctiles ≥ 44 px. Todo lugar accesible también desde la lista.</span></div>
+    </div>
+    <div style="font-size:26px;color:#57514A">Siguientes pasos: estados vacíos · flujo de opinión · test con 5 familias de los tres escenarios.</div>
+  </section>
+
+  <section data-label="Sección · Sistema de diseño" data-screen-label="19" data-speaker-notes="Anexo: fundamentos del sistema de diseño para el desarrollo." style="background:#1F1D1A;color:#FFFEFB;font-family:'Figtree',sans-serif;padding:110px 120px;box-sizing:border-box;display:flex;flex-direction:column;justify-content:flex-end;gap:24px">
+    <div style="font:500 26px 'JetBrains Mono',monospace;color:#C4BAAA">Anexo · Fundamentos</div>
+    <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:160px;letter-spacing:-0.05em;line-height:0.9">Sistema de diseño</h2>
+  </section>
+
+  <section data-label="SD · Colores" data-screen-label="20" data-speaker-notes="Pino para la acción, ámbar solo para estrellas. Neutros cálidos; el texto nunca baja de Tinta 3. Los estados de atributo siempre van con icono y texto." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:90px 120px;box-sizing:border-box;display:flex;flex-direction:column;gap:56px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">08 · Colores</div>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:72px;letter-spacing:-0.04em;line-height:1">Pino, papel y tinta</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:18px">
+      <div style="grid-column:span 4;font-size:24px;font-weight:700">Marca</div><div style="grid-column:span 4;font-size:24px;font-weight:700">Estados de atributo</div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="height:190px;border-radius:18px;background:#2E5A4C"></div><strong style="font-size:24px">Pino</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">#2E5A4C</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="height:190px;border-radius:18px;background:#234539"></div><strong style="font-size:24px">Pino oscuro</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">#234539</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="height:190px;border-radius:18px;background:#E2ECE6"></div><strong style="font-size:24px">Pino claro</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">#E2ECE6</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="height:190px;border-radius:18px;background:#C98A1B"></div><strong style="font-size:24px">Ámbar</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">#C98A1B</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="height:190px;border-radius:18px;background:#234539;color:#fff;display:flex;align-items:flex-end;padding:14px;box-sizing:border-box"><span class="material-symbols-rounded" style="font-size:36px">check</span></div><strong style="font-size:24px">Sí</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">#234539</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="height:190px;border-radius:18px;background:#6B5A24;color:#fff;display:flex;align-items:flex-end;padding:14px;box-sizing:border-box"><span class="material-symbols-rounded" style="font-size:36px">contrast</span></div><strong style="font-size:24px">Parcial</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">#6B5A24</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="height:190px;border-radius:18px;background:#8E4529;color:#fff;display:flex;align-items:flex-end;padding:14px;box-sizing:border-box"><span class="material-symbols-rounded" style="font-size:36px">close</span></div><strong style="font-size:24px">No</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">#8E4529</span></div>
+      <div style="display:flex;flex-direction:column;gap:10px"><div style="height:190px;border-radius:18px;border:3px dashed #C4BAAA;color:#57514A;display:flex;align-items:flex-end;padding:12px;box-sizing:border-box"><span class="material-symbols-rounded" style="font-size:36px">help</span></div><strong style="font-size:24px">Sin datos</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">#57514A</span></div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:18px">
+      <div style="font-size:24px;font-weight:700">Neutros cálidos</div>
+      <div style="display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:14px">
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#1F1D1A"></div><strong style="font-size:24px">Tinta</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">1F1D1A</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#3A352F"></div><strong style="font-size:24px">Tinta 2</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">3A352F</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#57514A"></div><strong style="font-size:24px">Tinta 3</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">57514A</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#756D63"></div><strong style="font-size:24px">Tinta 4</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">756D63</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#C4BAAA"></div><strong style="font-size:24px">Borde +</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">C4BAAA</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#D3CABC"></div><strong style="font-size:24px">Campo</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">D3CABC</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#E4DDD2"></div><strong style="font-size:24px">Borde</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">E4DDD2</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#EFEAE1"></div><strong style="font-size:24px">Arena</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">EFEAE1</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#F7F4EE;border:2px solid #E4DDD2;box-sizing:border-box"></div><strong style="font-size:24px">Fondo</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">F7F4EE</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px"><div style="height:150px;border-radius:16px;background:#FFFEFB;border:2px solid #E4DDD2;box-sizing:border-box"></div><strong style="font-size:24px">Papel</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">FFFEFB</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="SD · Tipografía" data-screen-label="21" data-speaker-notes="Escala tipográfica. Bricolage solo para títulos; Figtree para todo lo demás. Las muestras están ampliadas para la proyección; los valores reales están a la derecha." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:90px 120px;box-sizing:border-box;display:flex;flex-direction:column;gap:36px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">09 · Tipografía</div>
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:72px;letter-spacing:-0.04em;line-height:1">Escala tipográfica</h2>
+      </div>
+      <span style="font-size:24px;color:#57514A">Muestras ampliadas · valores reales en px</span>
+    </div>
+    <div style="display:flex;flex-direction:column;background:#FFFEFB;border-radius:28px;padding:8px 40px">
+      <div style="display:grid;grid-template-columns:170px minmax(0,1fr) 420px;gap:24px;align-items:center;padding:12px 0"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">display</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:84px;letter-spacing:-0.04em;line-height:1">Lugares con niños</span><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A;text-align:right">Bricolage 600 · 56/56</span></div>
+      <div style="display:grid;grid-template-columns:170px minmax(0,1fr) 420px;gap:24px;align-items:center;padding:12px 0;border-top:2px solid #EFEAE1"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">h1</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:60px;letter-spacing:-0.035em;line-height:1.05">Parc de la Ciutadella</span><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A;text-align:right">Bricolage 600 · 40/42</span></div>
+      <div style="display:grid;grid-template-columns:170px minmax(0,1fr) 420px;gap:24px;align-items:center;padding:12px 0;border-top:2px solid #EFEAE1"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">h2</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:42px;letter-spacing:-0.02em;line-height:1.1">Cerca de ti</span><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A;text-align:right">Bricolage 600 · 28/31</span></div>
+      <div style="display:grid;grid-template-columns:170px minmax(0,1fr) 420px;gap:24px;align-items:center;padding:12px 0;border-top:2px solid #EFEAE1"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">h3</span><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:34px;letter-spacing:-0.015em;line-height:1.2">Atributos familiares</span><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A;text-align:right">Bricolage 600 · 22/26</span></div>
+      <div style="display:grid;grid-template-columns:170px minmax(0,1fr) 420px;gap:24px;align-items:center;padding:12px 0;border-top:2px solid #EFEAE1"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">title</span><span style="font-weight:700;font-size:28px;line-height:1.25">Ludoteca El Drac</span><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A;text-align:right">Figtree 700 · 17/21</span></div>
+      <div style="display:grid;grid-template-columns:170px minmax(0,1fr) 420px;gap:24px;align-items:center;padding:12px 0;border-top:2px solid #EFEAE1"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">body</span><span style="font-size:26px;line-height:1.5">Caminos llanos, se llega bien con carrito.</span><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A;text-align:right">Figtree 400 · 15/22 · 17/26</span></div>
+      <div style="display:grid;grid-template-columns:170px minmax(0,1fr) 420px;gap:24px;align-items:center;padding:12px 0;border-top:2px solid #EFEAE1"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">label</span><span style="font-weight:600;font-size:25px;line-height:1.3">Quitar filtro · Ver 31</span><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A;text-align:right">Figtree 600 · 14/18</span></div>
+      <div style="display:grid;grid-template-columns:170px minmax(0,1fr) 420px;gap:24px;align-items:center;padding:12px 0;border-top:2px solid #EFEAE1"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">caption</span><span style="font-weight:500;font-size:24px;color:#57514A">800 m · Gratis · 132 opiniones</span><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A;text-align:right">Figtree 500 · 12,5/17</span></div>
+      <div style="display:grid;grid-template-columns:170px minmax(0,1fr) 420px;gap:24px;align-items:center;padding:12px 0;border-top:2px solid #EFEAE1"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">mono</span><span style="font:500 24px 'JetBrains Mono',monospace;letter-spacing:0.02em;color:#57514A">DATO CONFIRMADO · 12 FAMILIAS</span><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A;text-align:right">JetBrains Mono 500 · 12</span></div>
+    </div>
+  </section>
+
+  <section data-label="SD · Espaciado y radios" data-screen-label="22" data-speaker-notes="Escala de espaciado en base 4, aplicada siempre como gap o padding. Radios: cuanto más grande el contenedor, mayor el radio." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:90px 120px;box-sizing:border-box;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">10 · Espaciado y radios</div>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:72px;letter-spacing:-0.04em;line-height:1">Base 4 · radios por tamaño</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;flex:1;min-height:0">
+      <div style="display:flex;flex-direction:column;justify-content:space-between;background:#FFFEFB;border-radius:28px;padding:28px 36px">
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">4</span><span style="height:22px;width:8px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Icono ↔ texto</span></div>
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">8</span><span style="height:22px;width:16px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Entre chips</span></div>
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">12</span><span style="height:22px;width:24px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Listas compactas</span></div>
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">16</span><span style="height:22px;width:32px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Tarjeta · margen móvil</span></div>
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">20</span><span style="height:22px;width:40px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Entre tarjetas</span></div>
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">24</span><span style="height:22px;width:48px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Panel · margen tablet</span></div>
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">32</span><span style="height:22px;width:64px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Entre bloques</span></div>
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">40</span><span style="height:22px;width:80px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Margen desktop</span></div>
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">48</span><span style="height:22px;width:96px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Entre secciones</span></div>
+        <div style="display:grid;grid-template-columns:70px 140px minmax(0,1fr);gap:20px;align-items:center;font-size:24px"><span style="font:600 24px 'JetBrains Mono',monospace;color:#2E5A4C">64</span><span style="height:22px;width:128px;background:#2E5A4C;border-radius:4px"></span><span style="color:#3A352F">Separación mayor</span></div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:18px">
+        <div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFB;border-radius:22px;padding:20px"><div style="flex:1;background:#E2ECE6;border:2px solid #2E5A4C;border-radius:6px"></div><span style="font-size:24px"><strong style="font-family:'JetBrains Mono',monospace;color:#2E5A4C">6</strong> badges</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFB;border-radius:22px;padding:20px"><div style="flex:1;background:#E2ECE6;border:2px solid #2E5A4C;border-radius:8px"></div><span style="font-size:24px"><strong style="font-family:'JetBrains Mono',monospace;color:#2E5A4C">8</strong> chips tarjeta</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFB;border-radius:22px;padding:20px"><div style="flex:1;background:#E2ECE6;border:2px solid #2E5A4C;border-radius:12px"></div><span style="font-size:24px"><strong style="font-family:'JetBrains Mono',monospace;color:#2E5A4C">12</strong> botones</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFB;border-radius:22px;padding:20px"><div style="flex:1;background:#E2ECE6;border:2px solid #2E5A4C;border-radius:16px"></div><span style="font-size:24px"><strong style="font-family:'JetBrains Mono',monospace;color:#2E5A4C">16</strong> tarjetas</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFB;border-radius:22px;padding:20px"><div style="flex:1;background:#E2ECE6;border:2px solid #2E5A4C;border-radius:20px"></div><span style="font-size:24px"><strong style="font-family:'JetBrains Mono',monospace;color:#2E5A4C">20</strong> paneles</span></div>
+        <div style="display:flex;flex-direction:column;gap:10px;background:#FFFEFB;border-radius:22px;padding:20px"><div style="flex:1;background:#E2ECE6;border:2px solid #2E5A4C;border-radius:24px"></div><span style="font-size:24px"><strong style="font-family:'JetBrains Mono',monospace;color:#2E5A4C">24</strong> hoja inferior</span></div>
+        <div style="grid-column:span 3;display:flex;align-items:center;gap:24px;background:#FFFEFB;border-radius:22px;padding:20px 28px"><span style="height:64px;padding:0 30px;display:flex;align-items:center;border:2px solid #2E5A4C;background:#E2ECE6;border-radius:999px;font-size:24px;font-weight:600;color:#234539">Chip de filtro</span><span style="font-size:24px"><strong style="font-family:'JetBrains Mono',monospace;color:#2E5A4C">full</strong> chips, pills, avatar</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section data-label="SD · Atributos" data-screen-label="23" data-speaker-notes="Doce atributos, un icono cada uno. La tarjeta muestra solo icono, nombre y estado." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:90px 120px;box-sizing:border-box;display:flex;flex-direction:column;gap:40px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">11 · Iconos de atributo</div>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:72px;letter-spacing:-0.04em;line-height:1">Doce atributos, un icono cada uno</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr));gap:18px;flex:1">
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">child_care</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Edad</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">child_care</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">stroller</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Carrito</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">stroller</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">accessible</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Accesible PMR</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">accessible</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">local_parking</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Parking</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">local_parking</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">fence</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Vallado</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">fence</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">park</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Sombra</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">park</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">chair</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Bancos</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">chair</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">water_drop</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Fuente</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">water_drop</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">wc</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">WC</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">wc</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">baby_changing_station</span><div style="display:flex;flex-direction:column;gap:4px;min-width:0"><strong style="font-size:28px">Cambiador</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">baby_<wbr>changing_<wbr>station</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">deck</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Picnic</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">deck</span></div></div>
+      <div style="display:flex;align-items:center;gap:20px;padding:0 26px;background:#FFFEFB;border-radius:22px"><span class="material-symbols-rounded" style="font-size:52px">restaurant</span><div style="display:flex;flex-direction:column;gap:4px"><strong style="font-size:28px">Comida cerca</strong><span style="font:500 24px 'JetBrains Mono',monospace;color:#57514A">restaurant</span></div></div>
+    </div>
+  </section>
+
+  <section data-label="SD · Categorías" data-screen-label="24" data-speaker-notes="Cada familia tiene color e icono de pin; cada subcategoría, icono propio que no repite ningún atributo. Los escenarios son atajos, no categorías." style="background:#F7F4EE;color:#1F1D1A;font-family:'Figtree',sans-serif;padding:90px 120px;box-sizing:border-box;display:flex;flex-direction:column;gap:36px">
+    <div style="display:flex;flex-direction:column;gap:16px">
+      <div style="font:500 26px 'JetBrains Mono',monospace;color:#57514A">12 · Iconos de categoría</div>
+      <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:72px;letter-spacing:-0.04em;line-height:1">Familias, subcategorías y escenarios</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;flex:1;align-items:stretch">
+      <div style="display:flex;flex-direction:column;background:#FFFEFB;border-radius:24px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:16px;padding:22px 24px;background:#F6E6DD"><span style="width:60px;height:60px;flex:none;border-radius:50%;background:#B45F3E;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">extension</span></span><strong style="font-size:28px;color:#9A4E31">Juego y ocio</strong></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:20px;padding:24px 28px;font-size:28px">
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#9A4E31">toys</span>Parques infantiles</span>
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#9A4E31">interests</span>Ludotecas</span>
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#9A4E31">attractions</span>Centros de ocio</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;background:#FFFEFB;border-radius:24px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:16px;padding:22px 24px;background:#E1EEE5"><span style="width:60px;height:60px;flex:none;border-radius:50%;background:#3E7656;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">forest</span></span><strong style="font-size:28px;color:#2F6246">Naturaleza</strong></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:20px;padding:24px 28px;font-size:28px">
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#2F6246">nature_people</span>Parques y áreas verdes</span>
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#2F6246">nature</span>Bosques</span>
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#2F6246">beach_access</span>Lagos y playas</span>
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#2F6246">outdoor_grill</span>Zonas de picnic</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;background:#FFFEFB;border-radius:24px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:16px;padding:22px 24px;background:#E3E9F3"><span style="width:60px;height:60px;flex:none;border-radius:50%;background:#4C6A98;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">museum</span></span><strong style="font-size:28px;color:#3D5A86">Cultura</strong></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:20px;padding:24px 28px;font-size:28px">
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#3D5A86">local_library</span>Bibliotecas</span>
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#3D5A86">account_balance</span>Museos</span>
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#3D5A86">theater_comedy</span>Centros culturales</span>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;background:#FFFEFB;border-radius:24px;overflow:hidden">
+        <div style="display:flex;align-items:center;gap:16px;padding:22px 24px;background:#F1EBD9"><span style="width:60px;height:60px;flex:none;border-radius:50%;background:#8A7530;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">family_restroom</span></span><strong style="font-size:28px;color:#6B5A24">Otros planes</strong></div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:20px;padding:24px 28px;font-size:28px">
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#6B5A24">diversity_1</span>Espacios familiares</span>
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#6B5A24">child_friendly</span>Casales infantiles</span>
+          <span style="display:flex;align-items:center;gap:14px"><span class="material-symbols-rounded" style="font-size:42px;color:#6B5A24">location_city</span>Equipamientos útiles</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:200px repeat(3,minmax(0,1fr));gap:22px;align-items:center">
+      <span style="font-size:24px;font-weight:700">Escenarios</span>
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 22px;background:#FFFEFB;border-radius:20px"><span style="width:56px;height:56px;flex:none;border-radius:16px;background:#E2ECE6;color:#234539;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">crib</span></span><div style="display:flex;flex-direction:column"><strong style="font-size:26px">Con bebé</strong><span style="font-size:24px;color:#57514A">0–3 · Carrito · Cambiador</span></div></div>
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 22px;background:#FFFEFB;border-radius:20px"><span style="width:56px;height:56px;flex:none;border-radius:16px;background:#F6E6DD;color:#8E4529;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">sports_handball</span></span><div style="display:flex;flex-direction:column"><strong style="font-size:26px">Para jugar</strong><span style="font-size:24px;color:#57514A">4–7 · Vallado · Fuente</span></div></div>
+      <div style="display:flex;align-items:center;gap:16px;padding:18px 22px;background:#FFFEFB;border-radius:20px"><span style="width:56px;height:56px;flex:none;border-radius:16px;background:#F1EBD9;color:#6B5A24;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:32px">hiking</span></span><div style="display:flex;flex-direction:column"><strong style="font-size:26px">Escapada</strong><span style="font-size:24px;color:#57514A">Naturaleza · Parking · Picnic</span></div></div>
+    </div>
+  </section>
+
+</x-import>
+</x-dc>
+</body>
+</html>

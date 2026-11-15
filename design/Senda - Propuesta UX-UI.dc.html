@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="design_doc_mode" content="canvas">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;display=block">
+<style>body{margin:0;background:#E9E4DA}a{color:#2E5A4C}a:hover{color:#234539}</style>
+</helmet>
+<section id="t0" style="padding:72px 80px 56px;font-family:'Figtree',sans-serif;color:#1F1D1A;border-bottom:1px solid rgba(31,29,26,0.1)">
+  <div style="max-width:1480px;display:flex;flex-direction:column;gap:48px">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;gap:40px">
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div style="font:500 13px 'JetBrains Mono',monospace;color:#57514A">TFM · Propuesta de diseño de producto · v1 · octubre 2026</div>
+        <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:72px;letter-spacing:-0.04em;line-height:0.95">senda<span style="font-size:22px;font-weight:500;letter-spacing:0;color:#57514A;margin-left:14px;vertical-align:middle">nombre provisional</span></h1>
+        <p style="margin:0;font-size:20px;line-height:1.45;color:#3A352F;max-width:760px;text-wrap:pretty">Descubrir lugares que encajan de verdad con tu familia, con información práctica aportada y validada por otras familias.</p>
+      </div>
+      <div style="display:flex;gap:24px;font-size:14px;color:#3A352F">
+        <a href="#t2">Escritorio</a><a href="#t3">Móvil</a><a href="#t4">Implementación</a>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px">
+      <div style="background:#FFFEFB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px">
+        <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">01 · INTERPRETACIÓN</div>
+        <h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:26px;letter-spacing:-0.02em;line-height:1.1">Una herramienta de decisión, no un directorio</h2>
+        <p style="margin:0;font-size:15.5px;line-height:1.6;color:#3A352F">La pregunta que resuelve cada pantalla es «¿me sirve ir aquí con mis hijos?». La categoría dice <em>qué es</em> un lugar; los atributos familiares y la edad dicen <em>si encaja</em>. Por eso los atributos son el elemento visual protagonista en tarjetas, mapa y ficha.</p>
+        <p style="margin:0;font-size:15.5px;line-height:1.6;color:#3A352F">Los datos públicos (OpenStreetMap) aportan los <em>lugares</em> desde el primer día; los <em>atributos familiares</em> los aportan y confirman las familias. Siempre se distingue dato de origen, dato confirmado por familias y opinión subjetiva.</p>
+      </div>
+      <div style="background:#FFFEFB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px">
+        <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">02 · PRINCIPIOS UX</div>
+        <div style="display:flex;flex-direction:column;gap:12px;font-size:15px;line-height:1.5;color:#3A352F">
+          <div style="display:flex;gap:12px"><strong style="color:#2E5A4C;flex:none">1</strong><span><strong>El mapa siempre visible.</strong> Filtros y lista conviven con él; nunca lo tapan por completo en escritorio.</span></div>
+          <div style="display:flex;gap:12px"><strong style="color:#2E5A4C;flex:none">2</strong><span><strong>Por qué encaja, a la vista.</strong> Cada resultado resalta los atributos que coinciden con tus filtros.</span></div>
+          <div style="display:flex;gap:12px"><strong style="color:#2E5A4C;flex:none">3</strong><span><strong>Filtros de un toque.</strong> Los más usados como chips sobre el mapa; el resto en un panel con vista previa del recuento.</span></div>
+          <div style="display:flex;gap:12px"><strong style="color:#2E5A4C;flex:none">4</strong><span><strong>Decidir primero, profundizar después.</strong> Ficha ordenada: valoración → edades → atributos → descripción → opiniones.</span></div>
+          <div style="display:flex;gap:12px"><strong style="color:#2E5A4C;flex:none">5</strong><span><strong>Honestidad del dato.</strong> «Sí / Parcial / No / Sin datos», con icono y texto, nunca solo color.</span></div>
+          <div style="display:flex;gap:12px"><strong style="color:#2E5A4C;flex:none">6</strong><span><strong>Cuenta solo para aportar.</strong> Explorar y consultar no requiere registro.</span></div>
+        </div>
+      </div>
+      <div style="background:#FFFEFB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px">
+        <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">03 · NAVEGACIÓN</div>
+        <div style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+          <div style="display:flex;align-items:center;gap:8px"><span style="padding:8px 12px;border-radius:10px;background:#EFEAE1;font-weight:600">Inicio</span><span class="material-symbols-rounded" style="font-size:18px;color:#756D63">arrow_forward</span><span style="padding:8px 12px;border-radius:10px;background:#2E5A4C;color:#fff;font-weight:600">Explorar · mapa + lista</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding-left:96px"><span class="material-symbols-rounded" style="font-size:18px;color:#756D63">subdirectory_arrow_right</span><span style="padding:8px 12px;border-radius:10px;background:#EFEAE1;font-weight:600">Filtros</span><span style="font-size:12.5px;color:#57514A">panel lateral / bottom sheet</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding-left:96px"><span class="material-symbols-rounded" style="font-size:18px;color:#756D63">subdirectory_arrow_right</span><span style="padding:8px 12px;border-radius:10px;background:#EFEAE1;font-weight:600">Ficha de lugar</span></div>
+          <div style="display:flex;align-items:center;gap:8px;padding-left:200px"><span class="material-symbols-rounded" style="font-size:18px;color:#756D63">subdirectory_arrow_right</span><span style="padding:8px 12px;border-radius:10px;border:1.5px dashed #C4BAAA;font-weight:600">Valorar · Opinar</span></div>
+          <div style="display:flex;align-items:center;gap:8px;margin-top:6px"><span style="padding:8px 12px;border-radius:10px;border:1.5px dashed #C4BAAA;font-weight:600">Proponer lugar</span><span style="padding:8px 12px;border-radius:10px;background:#EFEAE1;font-weight:600">Entrar / Crear cuenta</span></div>
+        </div>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#57514A">Línea discontinua = requiere cuenta (se pide en contexto, al intentar la acción). Sin barra de pestañas en móvil: el mapa ocupa toda la pantalla y la cuenta y «Proponer» viven en el avatar. Cada lugar y cada estado de filtros tiene URL propia para poder compartirse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="t1" style="padding:56px 80px;font-family:'Figtree',sans-serif;color:#1F1D1A;border-bottom:1px solid rgba(31,29,26,0.1)">
+  <div style="max-width:1480px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font:600 12px 'JetBrains Mono',monospace;padding:4px 8px;background:#1F1D1A;color:#fff;border-radius:5px">01</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:36px;letter-spacing:-0.03em">Dirección de marca</h2><span style="font-size:15px;color:#57514A">Abierta: sistema mínimo para validar, no identidad cerrada</span></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(400px,1fr));gap:20px">
+      <div style="background:#FFFEFB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:18px">
+        <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">NOMBRE Y TONO</div>
+        <div style="display:flex;align-items:center;gap:14px">
+          <div style="width:56px;height:56px;border-radius:16px;background:#2E5A4C;position:relative;overflow:hidden"><div style="position:absolute;width:18px;height:18px;border-radius:50%;background:#F2C98A;top:11px;right:11px"></div><div style="position:absolute;left:-10px;right:-10px;bottom:-22px;height:40px;border-radius:50%;background:#7FA88F"></div></div>
+          <span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:700;font-size:44px;letter-spacing:-0.035em">senda</span>
+        </div>
+        <p style="margin:0;font-size:15px;line-height:1.6;color:#3A352F">Camino que se recorre en familia. Corto, fácil de pronunciar en castellano, catalán, gallego y euskera, y no atado a ningún territorio. Símbolo provisional: sol sobre una loma, formas simples sustituibles.</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:13.5px;line-height:1.45">
+          <div style="padding:12px;border-radius:12px;background:#E2ECE6;color:#234539"><strong style="display:block;margin-bottom:4px">Así sí</strong>«Caminos llanos, se llega bien con carrito.»<br>«No sabemos si hay cambiador. ¿Lo sabes tú?»</div>
+          <div style="padding:12px;border-radius:12px;background:#F6E6DD;color:#7A3B22"><strong style="display:block;margin-bottom:4px">Así no</strong>«¡¡El plan más mágico para tus peques!!»<br>Superlativos, diminutivos, exclamaciones.</div>
+        </div>
+      </div>
+      <div style="background:#FFFEFB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">PALETA</div>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+          <div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:12px;background:#2E5A4C"></div><div style="font-size:12.5px"><strong>Pino</strong> · primario<br><span style="font-family:'JetBrains Mono',monospace;color:#57514A">#2E5A4C</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:12px;background:#1F1D1A"></div><div style="font-size:12.5px"><strong>Tinta</strong> · texto<br><span style="font-family:'JetBrains Mono',monospace;color:#57514A">#1F1D1A</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><div style="height:64px;border-radius:12px;background:#F7F4EE;border:1px solid #E4DDD2"></div><div style="font-size:12.5px"><strong>Papel</strong> · fondo<br><span style="font-family:'JetBrains Mono',monospace;color:#57514A">#F7F4EE</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><div style="height:40px;border-radius:10px;background:#E2ECE6"></div><div style="font-size:12.5px"><strong>Salvia</strong> · coincide<br><span style="font-family:'JetBrains Mono',monospace;color:#57514A">#E2ECE6</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><div style="height:40px;border-radius:10px;background:#EFEAE1"></div><div style="font-size:12.5px"><strong>Arena</strong> · neutro<br><span style="font-family:'JetBrains Mono',monospace;color:#57514A">#EFEAE1</span></div></div>
+          <div style="display:flex;flex-direction:column;gap:6px"><div style="height:40px;border-radius:10px;background:#C98A1B"></div><div style="font-size:12.5px"><strong>Ocre</strong> · valoración<br><span style="font-family:'JetBrains Mono',monospace;color:#57514A">#C98A1B</span></div></div>
+        </div>
+        <div style="font-size:13px;font-weight:600;color:#3A352F;margin-top:4px">Familias de lugar · misma luminosidad, distinto tono + icono propio</div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px">
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border-radius:12px;background:#F6E6DD"><span style="width:34px;height:34px;border-radius:50%;background:#B45F3E;color:#fff;border:2px solid #fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:18px">extension</span></span><span style="font-size:12.5px;font-weight:600">Juego y ocio</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border-radius:12px;background:#E1EEE5"><span style="width:34px;height:34px;border-radius:50%;background:#3E7656;color:#fff;border:2px solid #fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:18px">forest</span></span><span style="font-size:12.5px;font-weight:600">Naturaleza</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border-radius:12px;background:#E3E9F3"><span style="width:34px;height:34px;border-radius:50%;background:#4C6A98;color:#fff;border:2px solid #fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:18px">museum</span></span><span style="font-size:12.5px;font-weight:600">Cultura</span></div>
+          <div style="display:flex;flex-direction:column;align-items:center;gap:6px;padding:12px 4px;border-radius:12px;background:#F1EBD9"><span style="width:34px;height:34px;border-radius:50%;background:#8A7535;color:#fff;border:2px solid #fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:18px">family_restroom</span></span><span style="font-size:12.5px;font-weight:600">Otros planes</span></div>
+        </div>
+      </div>
+      <div style="background:#FFFEFB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">TIPOGRAFÍA</div>
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:40px;letter-spacing:-0.035em;line-height:1">Planes que encajan</span><span style="font-size:12.5px;color:#57514A">Bricolage Grotesque 600 · titulares y cifras · tracking −3%</span></div>
+        <div style="display:flex;flex-direction:column;gap:4px"><span style="font-size:16px;line-height:1.55">Caminos llanos, mucha sombra y una zona de juegos vallada para los más pequeños.</span><span style="font-size:12.5px;color:#57514A">Figtree 400–700 · interfaz y lectura · 15–16 px base, 12 px mínimo</span></div>
+        <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A;margin-top:8px">ICONOGRAFÍA · Material Symbols Rounded, 400, sin relleno</div>
+        <div style="display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:6px">
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">stroller</span>Carrito</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">park</span>Sombra</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">wc</span>WC</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">baby_changing_station</span>Cambiador</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">fence</span>Vallado</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">deck</span>Picnic</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">water_drop</span>Fuente</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">chair</span>Bancos</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">local_parking</span>Parking</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">accessible</span>PMR</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">restaurant</span>Comida</span>
+          <span style="display:flex;flex-direction:column;align-items:center;gap:3px;font-size:11.5px;color:#3A352F"><span class="material-symbols-rounded" style="font-size:26px">child_care</span>Edad</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(460px,1fr));gap:20px">
+      <div style="background:#FFFEFB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">TAXONOMÍA PROPUESTA · 4 FAMILIAS + ATRIBUTOS TRANSVERSALES + ESCENARIOS</div>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;font-size:14px;line-height:1.7;color:#3A352F">
+          <div><div style="font-weight:700;color:#9A4E31;margin-bottom:4px">Juego y ocio</div>Parques infantiles<br>Ludotecas<br>Centros de ocio</div>
+          <div><div style="font-weight:700;color:#2F6246;margin-bottom:4px">Naturaleza y aire libre</div>Parques y áreas verdes<br>Bosques<br>Lagos y playas<br>Zonas de picnic</div>
+          <div><div style="font-weight:700;color:#3D5A86;margin-bottom:4px">Cultura y aprendizaje</div>Bibliotecas<br>Museos<br>Centros culturales</div>
+          <div><div style="font-weight:700;color:#6B5A24;margin-bottom:4px">Otros planes</div>Espacios familiares<br>Casales infantiles<br>Equipamientos útiles</div>
+        </div>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#57514A">Cambios respecto al brief: «Áreas verdes» y «parques urbanos» se unen (el usuario no distingue); playas y lagos comparten subgrupo «agua». Los <strong>escenarios</strong> (Con bebé · Para jugar · Escapada) no son categorías: son atajos que activan combinaciones de edad + atributos.</p>
+      </div>
+      <div style="background:#FFFEFB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:16px">
+        <div style="font:500 12px 'JetBrains Mono',monospace;color:#57514A">ESTADOS DE ATRIBUTO · ICONO + TEXTO + COLOR</div>
+        <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+          <div style="padding:12px;border-radius:12px;border:1px solid #E4DDD2;display:flex;flex-direction:column;gap:6px"><span class="material-symbols-rounded" style="font-size:24px">park</span><strong style="font-size:14px">Sombra</strong><span style="display:flex;align-items:center;gap:3px;font-size:12.5px;font-weight:700;color:#234539"><span class="material-symbols-rounded" style="font-size:16px">check</span>Sí</span></div>
+          <div style="padding:12px;border-radius:12px;border:1px solid #E4DDD2;display:flex;flex-direction:column;gap:6px"><span class="material-symbols-rounded" style="font-size:24px">fence</span><strong style="font-size:14px">Vallado</strong><span style="display:flex;align-items:center;gap:3px;font-size:12.5px;font-weight:700;color:#6B5A24"><span class="material-symbols-rounded" style="font-size:16px">contrast</span>Parcial</span></div>
+          <div style="padding:12px;border-radius:12px;border:1px solid #E4DDD2;background:#F7F4EE;display:flex;flex-direction:column;gap:6px"><span class="material-symbols-rounded" style="font-size:24px;color:#756D63">local_parking</span><strong style="font-size:14px;color:#57514A">Parking</strong><span style="display:flex;align-items:center;gap:3px;font-size:12.5px;font-weight:700;color:#8E4529"><span class="material-symbols-rounded" style="font-size:16px">close</span>No</span></div>
+          <div style="padding:12px;border-radius:12px;border:1.5px dashed #C4BAAA;display:flex;flex-direction:column;gap:6px"><span class="material-symbols-rounded" style="font-size:24px;color:#756D63">baby_changing_station</span><strong style="font-size:14px;color:#57514A">Cambiador</strong><span style="display:flex;align-items:center;gap:3px;font-size:12.5px;font-weight:700;color:#57514A"><span class="material-symbols-rounded" style="font-size:16px">help</span>Sin datos</span></div>
+        </div>
+        <p style="margin:0;font-size:14px;line-height:1.55;color:#57514A">Al lanzar, la mayoría de atributos estarán en «Sin datos»: los datos públicos solo aportan el lugar. «Sin datos» es una invitación a aportar, no un hueco.</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="t2" style="padding:56px 80px;font-family:'Figtree',sans-serif;color:#1F1D1A;border-bottom:1px solid rgba(31,29,26,0.1)">
+  <div style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font:600 12px 'JetBrains Mono',monospace;padding:4px 8px;background:#1F1D1A;color:#fff;border-radius:5px">02</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:36px;letter-spacing:-0.03em">Escritorio · 1440 px</h2></div>
+    <div style="display:flex;flex-wrap:wrap;gap:64px 72px;align-items:flex-start;width:2960px">
+      <div id="s01" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">01</span><strong style="font-size:16px">Inicio / descubrimiento</strong><span style="font-size:14px;color:#57514A">Buscador, ubicación, escenarios y mapa vivo en el primer pantallazo. Sin landing de marketing.</span></div>
+        <div style="width:1440px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(31,29,26,0.08),0 30px 60px rgba(31,29,26,0.1)"><dc-import name="Home" hint-size="1440px,1240px"></dc-import></div>
+      </div>
+      <div id="s02" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">02</span><strong style="font-size:16px">Mapa + resultados</strong><span style="font-size:14px;color:#57514A">Lista sincronizada con el área visible. Chips verdes = atributos que coinciden con tus filtros.</span></div>
+        <div style="width:1440px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(31,29,26,0.08),0 30px 60px rgba(31,29,26,0.1)"><dc-import name="MapExplore" mode="results" hint-size="1440px,900px"></dc-import></div>
+      </div>
+      <div id="s03" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">03</span><strong style="font-size:16px">Filtros abiertos</strong><span style="font-size:14px;color:#57514A">El panel sustituye a la lista; el mapa se actualiza en vivo como vista previa antes de confirmar.</span></div>
+        <div style="width:1440px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(31,29,26,0.08),0 30px 60px rgba(31,29,26,0.1)"><dc-import name="MapExplore" mode="filters" hint-size="1440px,900px"></dc-import></div>
+      </div>
+      <div id="s06" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">06</span><strong style="font-size:16px">Login / registro en contexto</strong><span style="font-size:14px;color:#57514A">Aparece solo al intentar aportar, recordando qué ibas a hacer. Después vuelve a esa acción.</span></div>
+        <div style="width:1440px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(31,29,26,0.08),0 30px 60px rgba(31,29,26,0.1)"><dc-import name="Auth" hint-size="1440px,900px"></dc-import></div>
+      </div>
+      <div id="s04" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">04</span><strong style="font-size:16px">Ficha de lugar</strong><span style="font-size:14px;color:#57514A">Bloque «¿Encaja con tu familia?» antes que la descripción. Procedencia del dato visible pero discreta.</span></div>
+        <div style="width:1440px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(31,29,26,0.08),0 30px 60px rgba(31,29,26,0.1)"><dc-import name="PlaceDetail" hint-size="1440px,2000px"></dc-import></div>
+      </div>
+      <div id="s05" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">05</span><strong style="font-size:16px">Proponer lugar</strong><span style="font-size:14px;color:#57514A">Detección de duplicados al situar el punto, atributos con «No sé» y revisión antes de publicar.</span></div>
+        <div style="width:1440px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(31,29,26,0.08),0 30px 60px rgba(31,29,26,0.1)"><dc-import name="AddPlace" hint-size="1440px,1900px"></dc-import></div>
+      </div>
+      <div id="s09" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">09</span><strong style="font-size:16px">Pocos resultados · ortofoto activa</strong><span style="font-size:14px;color:#57514A">Explica que faltan datos confirmados y ofrece quitar el filtro. Con 0 resultados se usa el mismo bloque. Atribución según la capa.</span></div>
+        <div style="width:1440px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(31,29,26,0.08),0 30px 60px rgba(31,29,26,0.1)"><dc-import name="MapExplore" mode="empty" hint-size="1440px,900px"></dc-import></div>
+      </div>
+      <div id="s10" style="display:flex;flex-direction:column;gap:12px">
+        <div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">10</span><strong style="font-size:16px">Valorar un lugar</strong><span style="font-size:14px;color:#57514A">Solo las estrellas son obligatorias. Preguntas cerradas sobre atributos y edades alimentan la ficha; etiquetas que no repiten atributos.</span></div>
+        <div style="width:1440px;border-radius:12px;overflow:hidden;box-shadow:0 2px 6px rgba(31,29,26,0.08),0 30px 60px rgba(31,29,26,0.1)"><dc-import name="RateForm" hint-size="1440px,1500px"></dc-import></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="t3" style="padding:56px 80px;font-family:'Figtree',sans-serif;color:#1F1D1A;border-bottom:1px solid rgba(31,29,26,0.1)">
+  <div style="display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font:600 12px 'JetBrains Mono',monospace;padding:4px 8px;background:#1F1D1A;color:#fff;border-radius:5px">03</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:36px;letter-spacing:-0.03em">Móvil · prioridad del MVP</h2><span style="font-size:15px;color:#57514A">Bottom sheet con tres alturas: tarjetas (peek) · lista · cerrado. El mapa nunca queda por debajo del 40% de la pantalla en el estado por defecto.</span></div>
+    <div style="display:flex;gap:48px;align-items:flex-start">
+      <div id="s07a" style="display:flex;flex-direction:column;gap:12px;width:402px"><div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">07a</span><strong style="font-size:15px">Mapa · tarjetas</strong></div><dc-import name="MobileMap" state="peek" hint-size="402px,874px"></dc-import><span style="font-size:13.5px;color:#57514A;line-height:1.5">Tocar un marcador centra su tarjeta; deslizar tarjetas mueve el marcador seleccionado.</span></div>
+      <div id="s07b" style="display:flex;flex-direction:column;gap:12px;width:402px"><div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">07b</span><strong style="font-size:15px">Lista</strong></div><dc-import name="MobileMap" state="list" hint-size="402px,874px"></dc-import><span style="font-size:13.5px;color:#57514A;line-height:1.5">Sheet expandido; los chips de filtro siguen accesibles arriba. Botón flotante para volver al mapa.</span></div>
+      <div id="s07c" style="display:flex;flex-direction:column;gap:12px;width:402px"><div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">07c</span><strong style="font-size:15px">Filtros</strong></div><dc-import name="MobileMap" state="filters" hint-size="402px,874px"></dc-import><span style="font-size:13.5px;color:#57514A;line-height:1.5">Hoja modal; el botón muestra el recuento resultante antes de aplicar. Objetivos táctiles ≥ 44 px.</span></div>
+      <div id="s08a" style="display:flex;flex-direction:column;gap:12px;width:402px"><div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">08a</span><strong style="font-size:15px">Ficha · primer vistazo</strong></div><dc-import name="MobilePlace" state="top" hint-size="402px,874px"></dc-import><span style="font-size:13.5px;color:#57514A;line-height:1.5">Valoración, edades y 8 atributos clave sin hacer scroll. Acciones fijas al pulgar.</span></div>
+      <div id="s08b" style="display:flex;flex-direction:column;gap:12px;width:402px"><div style="display:flex;align-items:baseline;gap:10px"><span style="font:600 11px 'JetBrains Mono',monospace;padding:3px 7px;background:rgba(31,29,26,0.1);border-radius:5px">08b</span><strong style="font-size:15px">Ficha · al hacer scroll</strong></div><dc-import name="MobilePlace" state="more" hint-size="402px,874px"></dc-import><span style="font-size:13.5px;color:#57514A;line-height:1.5">Cabecera compacta con el nombre; después descripción, ubicación y opiniones.</span></div>
+    </div>
+  </div>
+</section>
+<section id="t4" style="padding:56px 80px 96px;font-family:'Figtree',sans-serif;color:#1F1D1A">
+  <div style="max-width:1480px;display:flex;flex-direction:column;gap:28px">
+    <div style="display:flex;align-items:baseline;gap:14px"><span style="font:600 12px 'JetBrains Mono',monospace;padding:4px 8px;background:#1F1D1A;color:#fff;border-radius:5px">04</span><h2 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:36px;letter-spacing:-0.03em">Notas para implementación</h2></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(380px,1fr));gap:20px;font-size:14.5px;line-height:1.6;color:#3A352F">
+      <div style="background:#FFFEFB;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px"><strong style="font-size:16px;color:#1F1D1A">Mapa (OpenLayers)</strong><span>Capa base raster de teselas OpenStreetMap con un tinte cálido, y capa alternativa de ortofoto (ICGC) conmutable desde el control «Mapa / Ortofoto». La atribución cambia con la capa activa: «© colaboradores de OpenStreetMap» o «Ortofoto: © ICGC». Marcadores como <code>ol/layer/Vector</code> con <code>ol/source/Cluster</code>; el seleccionado como <code>Overlay</code> HTML para el nombre y la nota. La lista se recalcula con el <code>extent</code> en <code>moveend</code>; «Buscar en esta zona» solo aparece si el usuario ha movido el mapa tras una búsqueda.</span></div>
+      <div style="background:#FFFEFB;border-radius:20px;padding:24px;display:flex;flex-direction:column;gap:8px"><strong style="font-size:16px;color:#1F1D1A">Responsive</strong><span>≥ 1024 px: panel 440 px + mapa. 640–1023 px: mapa a pantalla completa con panel flotante plegable. &lt; 640 px: bottom sheet de 3 alturas y filtros como hoja modal. Estado de búsqueda y filtros en la URL (<code>?edad=0-3&amp;attr=carrito</code>) para compartir y volver atrás. Selector de idioma ES · CA · EN en la cabecera; el idioma va en la ruta (<code>/ca/…</code>).</span></div>
+      <div style="background:#FFFEFB;border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:8px"><strong style="font-size:16px;color:#1F1D1A">Accesibilidad</strong><span>Texto ≥ 4.5:1 sobre papel (tinta secundaria #57514A ≈ 7:1). Categoría = color + icono; atributos = icono + texto + estado. Táctiles ≥ 44 px. Los marcadores tienen equivalente en la lista para lectores de pantalla; el mapa no es la única vía de acceso a un lugar. Foco visible en pino 2 px.</span></div>
+    </div>
+    <div style="font-size:14px;color:#57514A">Siguientes pasos sugeridos: pantalla intermedia (tablet) · valoración en móvil · prueba con 5 familias de los tres escenarios.</div>
+  </div>
+</section>
+</x-dc>
+</body>
+</html>

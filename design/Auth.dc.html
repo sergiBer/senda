@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;display=block">
+<style>body{margin:0;background:#F7F4EE}a{color:#2E5A4C}a:hover{color:#234539}</style>
+</helmet>
+<div data-screen-label="06 Registro" style="width:1440px;height:900px;position:relative;overflow:hidden;font-family:'Figtree',sans-serif;color:#1F1D1A;background:#F7F4EE">
+  <dc-import name="MapCanvas" zoom="{{ 13 }}" selected="ciutadella" clusters="{{ true }}" hide-attribution="{{ true }}" hint-size="100%,100%" style="position:absolute;inset:0"></dc-import>
+  <div style="position:absolute;inset:0;background:rgba(31,29,26,0.5);z-index:20"></div>
+  <div role="dialog" aria-labelledby="auth-title" style="position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:460px;background:#FFFEFB;border-radius:24px;box-shadow:0 30px 80px rgba(0,0,0,0.3);z-index:30;overflow:hidden">
+    <div style="display:flex;align-items:center;gap:12px;padding:14px 14px 14px 20px;background:#EEF4F0;border-bottom:1px solid #DCE7E0">
+      <div style="width:40px;height:40px;border-radius:10px;background:repeating-linear-gradient(135deg,#E1EEE5 0 6px,#D3E5D9 6px 12px);flex:none"></div>
+      <div style="flex:1;font-size:14px;line-height:1.4;color:#234539">Para valorar <strong>Parc de la Ciutadella</strong> necesitas una cuenta.</div>
+      <button aria-label="Cerrar" style="width:40px;height:40px;border:0;border-radius:10px;background:transparent;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:22px">close</span></button>
+    </div>
+    <div style="padding:24px 28px 28px;display:flex;flex-direction:column;gap:18px">
+      <h2 id="auth-title" style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:28px;letter-spacing:-0.02em">Únete a la comunidad</h2>
+      <div style="display:flex;gap:4px;padding:4px;background:#EFEAE1;border-radius:12px">
+        <button style="flex:1;height:38px;border:0;border-radius:9px;background:transparent;font:500 14.5px 'Figtree',sans-serif;color:#3A352F">Entrar</button>
+        <button style="flex:1;height:38px;border:0;border-radius:9px;background:#fff;box-shadow:0 1px 3px rgba(31,29,26,0.12);font:600 14.5px 'Figtree',sans-serif;color:#1F1D1A">Crear cuenta</button>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <button style="display:flex;align-items:center;justify-content:center;gap:10px;height:48px;border:1px solid #D3CABC;border-radius:12px;background:#fff;font:600 15px 'Figtree',sans-serif;color:#1F1D1A"><span style="width:20px;height:20px;border-radius:50%;border:1.5px solid #1F1D1A;font-size:11px;font-weight:700;display:flex;align-items:center;justify-content:center;box-sizing:border-box">G</span>Continuar con Google</button>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px;font-size:13px;color:#756D63"><span style="flex:1;height:1px;background:#E4DDD2"></span>o con tu email<span style="flex:1;height:1px;background:#E4DDD2"></span></div>
+      <label style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:600;font-size:14px">Nombre visible</span><span style="display:flex;align-items:center;height:48px;padding:0 14px;border:1px solid #D3CABC;border-radius:12px;background:#fff;font-size:15px">Laura M.</span><span style="font-size:12.5px;color:#57514A">Así te verán otras familias en tus opiniones.</span></label>
+      <label style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:600;font-size:14px">Email</span><span style="display:flex;align-items:center;height:48px;padding:0 14px;border:2px solid #2E5A4C;border-radius:12px;background:#fff;font-size:15px">laura@ejemplo.com</span></label>
+      <label style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:600;font-size:14px">Contraseña</span><span style="display:flex;align-items:center;height:48px;padding:0 6px 0 14px;border:1px solid #D3CABC;border-radius:12px;background:#fff;font-size:15px;letter-spacing:0.2em"><span style="flex:1">••••••••••</span><span class="material-symbols-rounded" style="font-size:21px;letter-spacing:0;color:#57514A;padding:8px">visibility</span></span><span style="display:flex;align-items:center;gap:4px;font-size:12.5px;color:#234539"><span class="material-symbols-rounded" style="font-size:15px">check</span>Mínimo 8 caracteres</span></label>
+      <button style="height:52px;border:0;border-radius:12px;background:#2E5A4C;color:#fff;font:600 16px 'Figtree',sans-serif">Crear cuenta y valorar</button>
+      <div style="font-size:12.5px;line-height:1.5;color:#57514A;text-align:center">Al continuar aceptas las <a href="#">condiciones</a> y la <a href="#">política de privacidad</a>.<br>Explorar el mapa y ver fichas no requiere cuenta.</div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

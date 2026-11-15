@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&amp;family=Figtree:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@20..48,300..600,0..1,0&amp;display=block">
+<style>body{margin:0;background:#F7F4EE}a{color:#2E5A4C}a:hover{color:#234539}</style>
+</helmet>
+<div data-screen-label="05 Proponer lugar" style="width:1440px;background:#F7F4EE;font-family:'Figtree',sans-serif;color:#1F1D1A">
+  <dc-import name="AppHeader" logged-in="{{ true }}" hint-size="100%,64px"></dc-import>
+  <div style="max-width:1160px;margin:0 auto;padding:32px 40px 64px;display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:48px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:28px">
+      <div style="display:flex;flex-direction:column;gap:8px">
+        <a href="#" style="display:flex;align-items:center;gap:4px;font-weight:600;font-size:14px;text-decoration:none"><span class="material-symbols-rounded" style="font-size:20px">close</span>Cancelar</a>
+        <h1 style="margin:0;font-family:'Bricolage Grotesque',sans-serif;font-weight:600;font-size:40px;letter-spacing:-0.03em;line-height:1.05">Proponer un lugar</h1>
+        <p style="margin:0;font-size:16px;color:#57514A;max-width:560px;line-height:1.5">Comparte un sitio que funcione con niños. Solo el nombre, la ubicación y el tipo son obligatorios; el resto suma.</p>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:16px;padding:24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:30px;height:30px;border-radius:50%;background:#2E5A4C;color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center">1</span><h2 style="margin:0;font-weight:700;font-size:19px">¿Dónde está?</h2></div>
+        <div style="display:flex;align-items:center;gap:10px;height:50px;padding:0 14px;border:1px solid #D3CABC;border-radius:12px;background:#fff"><span class="material-symbols-rounded" style="font-size:21px;color:#57514A">search</span><span style="font-size:15.5px">Carrer dels Enamorats, Barcelona</span></div>
+        <div style="height:280px;border-radius:14px;overflow:hidden;position:relative;border:1px solid #E4DDD2">
+          <dc-import name="MapCanvas" zoom="{{ 15 }}" center-on="clot" pan-y="{{ 30 }}" pan-x="{{ -60 }}" only="clot" hint-size="100%,100%" style="position:absolute;inset:0"></dc-import>
+          <div style="position:absolute;left:50%;top:50%;transform:translate(-50%,-100%);display:flex;flex-direction:column;align-items:center;z-index:10">
+            <div style="width:40px;height:40px;border-radius:50% 50% 50% 0;transform:rotate(-45deg);background:#1F1D1A;border:3px solid #fff;box-shadow:0 6px 14px rgba(31,29,26,0.35);display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:20px;color:#fff;transform:rotate(45deg)">add</span></div>
+          </div>
+          <div style="position:absolute;left:50%;top:50%;width:14px;height:6px;border-radius:50%;background:rgba(31,29,26,0.3);transform:translate(-50%,2px);z-index:9"></div>
+          <div style="position:absolute;left:12px;top:12px;display:flex;align-items:center;gap:6px;padding:8px 12px;background:#FFFEFB;border-radius:10px;font-size:13px;box-shadow:0 2px 8px rgba(31,29,26,0.12);z-index:10"><span class="material-symbols-rounded" style="font-size:17px">pan_tool</span>Mueve el mapa para ajustar el punto</div>
+        </div>
+        <div style="display:flex;gap:14px;padding:16px;border-radius:14px;background:#FBF3E4;border:1px solid #EAD7B0">
+          <span class="material-symbols-rounded" style="font-size:24px;color:#8A6416">info</span>
+          <div style="flex:1;display:flex;flex-direction:column;gap:10px">
+            <div><div style="font-weight:700;font-size:15px">¿Es alguno de estos?</div><div style="font-size:14px;color:#57514A">Hay lugares parecidos a menos de 150 m.</div></div>
+            <div style="display:flex;align-items:center;gap:12px;padding:10px 12px;background:#fff;border-radius:10px">
+              <span style="width:32px;height:32px;border-radius:50%;background:#B45F3E;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:17px">extension</span></span>
+              <div style="flex:1"><div style="font-weight:700;font-size:14.5px">Parc del Clot</div><div style="font-size:13px;color:#57514A">Parque infantil · a 90 m</div></div>
+              <button style="height:36px;padding:0 12px;border:1px solid #D3CABC;border-radius:9px;background:#fff;font:600 13.5px 'Figtree',sans-serif;color:#1F1D1A">Sí, es este</button>
+            </div>
+            <a href="#" style="font-weight:600;font-size:14px">No, es un lugar diferente</a>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;padding:24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:30px;height:30px;border-radius:50%;background:#2E5A4C;color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center">2</span><h2 style="margin:0;font-weight:700;font-size:19px">¿Qué es?</h2></div>
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:600;font-size:14.5px">Nombre del lugar</span><span style="display:flex;align-items:center;height:50px;padding:0 14px;border:2px solid #2E5A4C;border-radius:12px;background:#fff;font-size:15.5px">Jardí dels Enamorats<span style="width:1.5px;height:20px;background:#1F1D1A;margin-left:1px"></span></span></label>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-weight:600;font-size:14.5px">Tipo de lugar</span>
+          <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px">
+            <div style="display:flex;flex-direction:column;gap:8px;padding:14px;border:2px solid #2E5A4C;border-radius:14px;background:#EEF4F0"><span style="width:32px;height:32px;border-radius:50%;background:#B45F3E;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:18px">extension</span></span><span style="font-weight:700;font-size:14.5px">Juego y ocio</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid #D3CABC;border-radius:14px;background:#fff"><span style="width:32px;height:32px;border-radius:50%;background:#3E7656;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:18px">forest</span></span><span style="font-weight:600;font-size:14.5px">Naturaleza</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid #D3CABC;border-radius:14px;background:#fff"><span style="width:32px;height:32px;border-radius:50%;background:#4C6A98;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:18px">museum</span></span><span style="font-weight:600;font-size:14.5px">Cultura</span></div>
+            <div style="display:flex;flex-direction:column;gap:8px;padding:14px;border:1px solid #D3CABC;border-radius:14px;background:#fff"><span style="width:32px;height:32px;border-radius:50%;background:#8A7535;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:18px">family_restroom</span></span><span style="font-weight:600;font-size:14.5px">Otros</span></div>
+          </div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;margin-top:4px">
+            <span style="display:flex;align-items:center;gap:5px;height:36px;padding:0 12px 0 8px;border-radius:999px;background:#2E5A4C;color:#fff;font-weight:600;font-size:14px"><span class="material-symbols-rounded" style="font-size:18px">check</span>Parque infantil</span>
+            <span style="display:flex;align-items:center;height:36px;padding:0 12px;border-radius:999px;border:1px solid #D3CABC;background:#fff;font-size:14px">Ludoteca</span>
+            <span style="display:flex;align-items:center;height:36px;padding:0 12px;border-radius:999px;border:1px solid #D3CABC;background:#fff;font-size:14px">Centro de ocio</span>
+          </div>
+        </div>
+        <label style="display:flex;flex-direction:column;gap:6px"><span style="font-weight:600;font-size:14.5px">Cuéntalo como se lo contarías a otra familia <span style="font-weight:400;color:#756D63">(opcional)</span></span><span style="display:block;min-height:96px;padding:12px 14px;border:1px solid #D3CABC;border-radius:12px;background:#fff;font-size:15px;color:#756D63;line-height:1.5;box-sizing:border-box">Ej.: jardín pequeño y tranquilo, juegos para menores de 5 años, se llega bien con carrito…</span><span style="align-self:flex-end;font-size:12.5px;color:#756D63">0 / 500</span></label>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:18px;padding:24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:30px;height:30px;border-radius:50%;background:#2E5A4C;color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center">3</span><h2 style="margin:0;font-weight:700;font-size:19px">¿Para quién es y qué tiene?</h2></div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-weight:600;font-size:14.5px">Edades recomendadas</span>
+          <div style="display:flex;gap:8px">
+            <span style="display:flex;align-items:center;gap:5px;height:40px;padding:0 14px 0 10px;border-radius:10px;background:#2E5A4C;color:#fff;font-weight:600;font-size:14.5px"><span class="material-symbols-rounded" style="font-size:18px">check</span>0–3 años</span>
+            <span style="display:flex;align-items:center;gap:5px;height:40px;padding:0 14px 0 10px;border-radius:10px;background:#2E5A4C;color:#fff;font-weight:600;font-size:14.5px"><span class="material-symbols-rounded" style="font-size:18px">check</span>4–7 años</span>
+            <span style="display:flex;align-items:center;height:40px;padding:0 14px;border-radius:10px;border:1px solid #D3CABC;background:#fff;font-size:14.5px">8–12 años</span>
+          </div>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;justify-content:space-between;align-items:baseline"><span style="font-weight:600;font-size:14.5px">Atributos</span><span style="font-size:13px;color:#756D63">Si no lo sabes, déjalo en «No sé»</span></div>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 24px">
+            <sc-for list="{{ attrs }}" as="a" hint-placeholder-count="10">
+              <div style="display:flex;align-items:center;gap:10px;height:52px;border-bottom:1px solid #EFEAE1">
+                <span class="material-symbols-rounded" style="font-size:21px;color:#3A352F">{{ a.icon }}</span>
+                <span style="flex:1;font-size:14.5px;font-weight:500">{{ a.label }}</span>
+                <div style="display:flex;gap:2px;padding:3px;background:#EFEAE1;border-radius:9px">
+                  <span style="height:30px;padding:0 10px;display:flex;align-items:center;border-radius:7px;font-size:13px;font-weight:600;background:{{ a.yBg }};color:{{ a.yFg }}">Sí</span>
+                  <span style="height:30px;padding:0 10px;display:flex;align-items:center;border-radius:7px;font-size:13px;font-weight:600;background:{{ a.nBg }};color:{{ a.nFg }}">No</span>
+                  <span style="height:30px;padding:0 10px;display:flex;align-items:center;border-radius:7px;font-size:13px;font-weight:600;background:{{ a.uBg }};color:{{ a.uFg }}">No sé</span>
+                </div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:14px;padding:24px;background:#FFFEFB;border:1px solid #E4DDD2;border-radius:20px">
+        <div style="display:flex;align-items:center;gap:12px"><span style="width:30px;height:30px;border-radius:50%;background:#2E5A4C;color:#fff;font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center">4</span><h2 style="margin:0;font-weight:700;font-size:19px">Fotos <span style="font-weight:400;font-size:15px;color:#756D63">(opcional)</span></h2></div>
+        <div style="display:flex;gap:10px">
+          <div style="width:120px;height:96px;border-radius:12px;background:repeating-linear-gradient(135deg,#F6E6DD 0 8px,#F0DACE 8px 16px);position:relative"><span style="position:absolute;top:6px;right:6px;width:26px;height:26px;border-radius:50%;background:rgba(31,29,26,0.7);color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:16px">close</span></span></div>
+          <div style="flex:1;height:96px;border:1.5px dashed #C4BAAA;border-radius:12px;display:flex;align-items:center;justify-content:center;gap:10px;color:#3A352F;font-size:14.5px"><span class="material-symbols-rounded" style="font-size:24px">add_photo_alternate</span>Arrastra fotos o <a href="#" style="font-weight:600">selecciónalas</a> · hasta 6</div>
+        </div>
+        <div style="font-size:13px;color:#57514A">Evita que aparezcan caras de niños reconocibles.</div>
+      </div>
+      <div style="display:flex;align-items:center;gap:12px">
+        <div style="flex:1;display:flex;align-items:center;gap:8px;font-size:14px;color:#57514A"><span class="material-symbols-rounded" style="font-size:20px">verified_user</span>Revisaremos la propuesta antes de publicarla.</div>
+        <button style="height:50px;padding:0 20px;border:1px solid #D3CABC;border-radius:12px;background:#fff;font:600 15px 'Figtree',sans-serif;color:#1F1D1A">Guardar borrador</button>
+        <button style="height:50px;padding:0 26px;border:0;border-radius:12px;background:#2E5A4C;color:#fff;font:600 16px 'Figtree',sans-serif">Enviar propuesta</button>
+      </div>
+    </div>
+    <aside style="position:sticky;top:24px;display:flex;flex-direction:column;gap:16px">
+      <div style="font-size:13px;font-weight:600;letter-spacing:0.06em;text-transform:uppercase;color:#756D63">Así se verá</div>
+      <div style="background:#FFFEFB;border:1px solid #E4DDD2;border-radius:18px;overflow:hidden">
+        <div style="height:140px;background:repeating-linear-gradient(135deg,#F6E6DD 0 12px,#F0DACE 12px 24px);position:relative">
+          <span style="position:absolute;top:12px;left:12px;display:flex;align-items:center;gap:6px;height:28px;padding:0 10px 0 4px;border-radius:999px;background:#FFFEFB;font-weight:600;font-size:12.5px"><span style="width:20px;height:20px;border-radius:50%;background:#B45F3E;color:#fff;display:flex;align-items:center;justify-content:center"><span class="material-symbols-rounded" style="font-size:13px">extension</span></span>Parque infantil</span>
+          <span style="position:absolute;top:12px;right:12px;height:26px;padding:0 10px;display:flex;align-items:center;border-radius:999px;background:#1F1D1A;color:#fff;font-size:12px;font-weight:600">Pendiente de revisión</span>
+        </div>
+        <div style="padding:14px 16px 16px;display:flex;flex-direction:column;gap:9px">
+          <div style="font-weight:700;font-size:17px">Jardí dels Enamorats</div>
+          <div style="font-size:13.5px;color:#57514A">Sin valoraciones todavía</div>
+          <div style="display:flex;flex-wrap:wrap;gap:6px">
+            <span style="display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 8px;border-radius:8px;background:#E2ECE6;color:#234539;font-size:12.5px;font-weight:600"><span class="material-symbols-rounded" style="font-size:16px">child_care</span>0–7</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 8px;border-radius:8px;background:#EFEAE1;font-size:12.5px"><span class="material-symbols-rounded" style="font-size:16px">stroller</span>Carrito</span>
+            <span style="display:inline-flex;align-items:center;gap:4px;height:26px;padding:0 8px;border-radius:8px;background:#EFEAE1;font-size:12.5px"><span class="material-symbols-rounded" style="font-size:16px">fence</span>Vallado</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:10px;padding:16px;border-radius:16px;background:#EFEAE1;font-size:14px;line-height:1.5;color:#3A352F">
+        <div style="font-weight:700">Qué pasa después</div>
+        <div style="display:flex;gap:8px"><span class="material-symbols-rounded" style="font-size:19px">fact_check</span>Lo revisamos para evitar duplicados.</div>
+        <div style="display:flex;gap:8px"><span class="material-symbols-rounded" style="font-size:19px">verified_user</span>El equipo la revisará antes de publicarla.</div>
+        <div style="display:flex;gap:8px"><span class="material-symbols-rounded" style="font-size:19px">groups</span>Otras familias podrán completar la información.</div>
+      </div>
+    </aside>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ATTRS = [['stroller', 'Carrito', 'y'], ['park', 'Sombra', 'y'], ['fence', 'Vallado', 'y'], ['wc', 'WC', 'n'], ['baby_changing_station', 'Cambiador', 'u'], ['water_drop', 'Fuente', 'y'], ['chair', 'Bancos', 'y'], ['deck', 'Picnic', 'u'], ['local_parking', 'Parking', 'n'], ['accessible', 'Accesible PMR', 'u']];
+class Component extends DCLogic {
+  renderVals() {
+    const on = (v, k) => v === k;
+    return { attrs: ATTRS.map(([icon, label, v]) => ({ icon, label,
+      yBg: on(v, 'y') ? '#2E5A4C' : 'transparent', yFg: on(v, 'y') ? '#fff' : '#57514A',
+      nBg: on(v, 'n') ? '#8E4529' : 'transparent', nFg: on(v, 'n') ? '#fff' : '#57514A',
+      uBg: on(v, 'u') ? '#fff' : 'transparent', uFg: on(v, 'u') ? '#1F1D1A' : '#57514A' })) };
+  }
+}
+</script>
+</body>
+</html>

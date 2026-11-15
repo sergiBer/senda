@@ -1,0 +1,107 @@
+{
+  "v": 1,
+  "mode": "omelette",
+  "root": "project/",
+  "title": "Senda – Propuesta UX-UI",
+  "entry": "Senda - Sistema de diseño.dc.html",
+  "pages": [
+    {
+      "path": "Senda - Sistema de diseño.dc.html",
+      "title": "Senda - Sistema de diseño",
+      "kind": "page"
+    },
+    {
+      "path": "Senda - Deck.dc.html",
+      "title": "Senda - Deck",
+      "kind": "page"
+    },
+    {
+      "path": "RateForm.dc.html",
+      "title": "RateForm",
+      "kind": "component"
+    },
+    {
+      "path": "MobileMap.dc.html",
+      "title": "MobileMap",
+      "kind": "component"
+    },
+    {
+      "path": "MapExplore.dc.html",
+      "title": "MapExplore",
+      "kind": "component"
+    },
+    {
+      "path": "MapCanvas.dc.html",
+      "title": "MapCanvas",
+      "kind": "component"
+    },
+    {
+      "path": "AppHeader.dc.html",
+      "title": "AppHeader",
+      "kind": "component"
+    },
+    {
+      "path": "Senda - Propuesta UX-UI.dc.html",
+      "title": "Senda - Propuesta UX-UI",
+      "kind": "page"
+    },
+    {
+      "path": "MobilePlace.dc.html",
+      "title": "MobilePlace",
+      "kind": "component"
+    },
+    {
+      "path": "PlaceDetail.dc.html",
+      "title": "PlaceDetail",
+      "kind": "component"
+    },
+    {
+      "path": "AddPlace.dc.html",
+      "title": "AddPlace",
+      "kind": "component"
+    },
+    {
+      "path": "Auth.dc.html",
+      "title": "Auth",
+      "kind": "component"
+    },
+    {
+      "path": "Home.dc.html",
+      "title": "Home",
+      "kind": "component"
+    }
+  ],
+  "migratorVersion": "artifact-migrator (claude-design-backend ed667f7ac9c1)",
+  "createdAt": "2026-11-15T13:41:57.342Z",
+  "source": {
+    "v": 1,
+    "app": "claude-design",
+    "url": "https://claude.ai/design/p/b66a9cae-6785-44f7-8832-5acdb9e495d4",
+    "projectId": "b66a9cae-6785-44f7-8832-5acdb9e495d4",
+    "exportedAt": "2026-11-15T13:41:57.342Z"
+  },
+  "report": {
+    "itemsVersion": 2,
+    "pages": {
+      "total": 3,
+      "ok": 2,
+      "partial": 1,
+      "notMigrated": 0
+    },
+    "items": [
+      {
+        "kind": "external_blocked",
+        "path": "MapCanvas.dc.html",
+        "text": "https://geoserveis.icgc.cat/icc_mapesmultibase/noutm/wmts/orto/GRID3857/${z}/${tx}/${ty}.jpeg`\nhttps://tile.openstreetmap.org/${z}/${tx}/${ty}.png`"
+      },
+      {
+        "kind": "needs_capability",
+        "path": "Senda - Deck.dc.html",
+        "text": "has speaker notes (24 slides): kept, but not shown while presenting in Claude",
+        "capability": "presenter_view"
+      }
+    ],
+    "truncated": 0,
+    "truncatedLeftOut": 0
+  }
+}
