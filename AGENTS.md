@@ -19,13 +19,19 @@ Si algo no está decidido, **pregunta**; no decidas por el autor.
 
 ## Flujo de trabajo (SDD, HAR-05)
 
+**Al empezar una sesión, lee `specs/README.md`:** su índice dice qué spec está activa, en qué rama y cuál es el siguiente paso.
+
 Cada funcionalidad sigue este ciclo. No saltes pasos ni avances sin la revisión humana indicada.
 
 1. **Spec** (`specs/NNN-nombre/spec.md`, desde `specs/_plantillas/spec.md`): qué y por qué, con acceptance criteria Given/When/Then (HAR-06). → **revisión humana**
 2. **Plan** (`plan.md`): cómo, qué ficheros, qué decisiones técnicas. → **revisión humana**
 3. **Tareas** (`tasks.md`): pasos pequeños y verificables, cada uno con su test.
-4. **Implementación**: tarea a tarea; marca cada una al cerrarla.
-5. **Verificación**: cada acceptance criterion Given/When/Then tiene al menos un test que lo cubre y pasa.
+4. **Implementación**: tarea a tarea; marca cada una al cerrarla. Cada test lleva la etiqueta del AC que cubre (`# 001/AC-01`).
+5. **Verificación** (`verification.md`): qué test cubre cada AC, comandos ejecutados y resultado. Después, estado "hecha" en `spec.md` y en el índice.
+
+**Spec completa o ligera.** Cambios pequeños y acotados (un bug, un texto, un ajuste visual) usan `spec-ligera.md`: problema y AC, sin plan. Si tocan modelo de datos, contrato de API, una regla de negocio o más de una pantalla, spec completa.
+
+**Ramas y PR.** Cada spec en su rama (`001-esqueleto`), creada desde `main`, y entra por pull request. `main` está protegida: no se fusiona sin el CI en verde. No hagas commits directos a `main`.
 
 Al terminar una sesión de trabajo relevante, añade una entrada en `docs/ia/registro-uso-ia.md` (HAR-10): qué se pidió, qué se corrigió y dónde falló el agente.
 

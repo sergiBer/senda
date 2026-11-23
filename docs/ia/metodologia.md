@@ -42,7 +42,9 @@ flowchart LR
 
 **Tareas.** El plan se divide en pasos pequeños, cada uno abordable en una sola sesión de trabajo y asociado a los criterios que cubre. Las tareas pequeñas reducen el riesgo de que el agente pierda el hilo en cambios grandes, y dejan constancia de por dónde va el trabajo.
 
-**Implementación y verificación.** El agente implementa tarea a tarea. Una funcionalidad solo se da por terminada cuando cada criterio de aceptación tiene al menos un test que lo comprueba y pasa, y todas las comprobaciones automáticas están en verde.
+**Implementación y verificación.** El agente implementa tarea a tarea. Una funcionalidad solo se da por terminada cuando cada criterio de aceptación tiene al menos un test que lo comprueba y pasa, y todas las comprobaciones automáticas están en verde. El cierre queda documentado en un informe de verificación que recoge qué test cubre cada criterio, qué comandos se ejecutaron y con qué resultado.
+
+No todos los cambios necesitan el ciclo completo. Para cambios pequeños y acotados, como corregir un error o un texto, existe una **especificación ligera**: el problema y sus criterios de aceptación, sin plan técnico. En cuanto un cambio afecta al modelo de datos, al contrato de API, a una regla de negocio o a más de una pantalla, se usa la especificación completa. Así el proceso no se convierte en burocracia para lo trivial.
 
 Las dos revisiones humanas son deliberadas. El coste de corregir un error crece a medida que avanza el ciclo: cambiar una frase de la especificación cuesta segundos; deshacer código ya generado y probado cuesta mucho más.
 
@@ -54,7 +56,7 @@ Los criterios de aceptación se escriben con el formato **Given / When / Then**,
 > **When** un usuario filtra por "sombra"
 > **Then** el lugar aparece en los resultados como dato consolidado
 
-Este formato tiene dos ventajas para el trabajo con agentes. Es lo bastante concreto como para que no haya dudas sobre lo que se espera, y se traduce casi directamente en un test automático. Así, la especificación que aprueba el autor y la prueba que verifica el código dicen lo mismo, y la trazabilidad de requisito a test queda explícita: cada criterio lleva un identificador (AC-01, AC-02…) que se cita desde las tareas y desde los propios tests.
+Este formato tiene dos ventajas para el trabajo con agentes. Es lo bastante concreto como para que no haya dudas sobre lo que se espera, y se traduce casi directamente en un test automático. Así, la especificación que aprueba el autor y la prueba que verifica el código dicen lo mismo, y la trazabilidad de requisito a test queda explícita: cada criterio lleva un identificador (AC-01, AC-02…) que se cita desde las tareas y desde los propios tests. Esa trazabilidad no se deja a la buena voluntad: un script en integración continua comprueba que, cuando una especificación se marca como terminada, cada uno de sus criterios aparece citado en al menos un test, y si falta alguno el cambio no puede entrar.
 
 ## El contexto que recibe el agente
 
@@ -87,13 +89,16 @@ La revisión humana se concentra en especificación y plan; la corrección del c
 
 Estas comprobaciones se ejecutan en dos momentos: antes de cada commit en el equipo del desarrollador, y en integración continua en cada cambio subido al repositorio. Su papel con los agentes es doble: garantizan un mínimo de calidad y dan al agente una señal inmediata y objetiva para corregirse solo, antes de que el autor tenga que intervenir.
 
+Cada funcionalidad se desarrolla en su propia rama y se incorpora a la rama principal mediante una *pull request*. La rama principal está protegida: no admite cambios si la integración continua no está en verde. Así ningún código generado llega a la versión estable sin haber pasado todas las comprobaciones, y cada funcionalidad queda revisable en un único lugar.
+
 ## Memoria del proyecto
 
 Como los agentes no recuerdan sesiones anteriores, la continuidad del trabajo depende de lo que queda escrito en el repositorio. Funciona como una memoria compartida por todos los agentes:
 
 - Las instrucciones generales y la constitución explican cómo se trabaja.
 - El registro de decisiones y los ADR explican qué se ha decidido y por qué.
-- La lista de tareas de cada especificación, con las completadas marcadas, indica dónde se quedó el trabajo, de modo que una sesión nueva puede retomarlo sin explicaciones.
+- Un índice de especificaciones indica cuál está activa, en qué rama y cuál es el siguiente paso. Es lo primero que lee el agente al empezar una sesión.
+- La lista de tareas de cada especificación, con las completadas marcadas, indica dónde se quedó el trabajo dentro de ella, de modo que una sesión nueva puede retomarlo sin explicaciones.
 
 Esta memoria no se actualiza sola: un agente solo escribe en ella cuando el flujo se lo indica. Algunas herramientas tienen además su propia memoria, pero es local y no la comparten los demás agentes, así que nada importante debe depender de ella.
 
