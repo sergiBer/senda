@@ -1,6 +1,8 @@
 # NNN · <Nombre de la funcionalidad>
 
-> Estado: borrador | en revisión | aprobada
+> Estado: borrador | en revisión | aprobada | en curso | hecha
+> Tipo: completa
+> Rama: `NNN-nombre`
 > Decisiones relacionadas: <IDs del registro, p. ej. ATR-03, EDA-04>
 
 ## Problema y objetivo
@@ -28,7 +30,7 @@ Pantallas de `design/` que afectan a esta funcionalidad (ver `design/README.md`)
 
 ## Acceptance criteria
 
-Cada criterio se convierte en al menos un test (HAR-06). Numéralos para poder citarlos desde `tasks.md` y desde los tests (`# AC-01`).
+Cada criterio se convierte en al menos un test (HAR-06). Numéralos para citarlos desde `tasks.md` y desde los tests con la etiqueta `NNN/AC-NN` (por ejemplo `# 001/AC-01` en Python o `// 001/AC-01` en TypeScript). El CI comprueba que, al marcar la spec como "hecha", cada AC tiene su etiqueta en algún test (`scripts/check_ac.py`).
 
 ### AC-01 · <título corto>
 - **Given** <contexto inicial>
